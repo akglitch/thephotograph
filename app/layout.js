@@ -1,19 +1,19 @@
+import { Inter, Playfair_Display } from "next/font/google";
 import './globals.css';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata = {
-  title: 'Kaytee Photography - Capturing Your Special Moments',
-  description: 'Professional photography services specializing in portraits, landscapes, and wedding photography.',
+  title: 'Kaytee Photography Portfolio',
+  description: 'A refined portfolio showcasing portraits, landscapes, and weddings with elegant visual storytelling.',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-white">
-        <Navigation />
+      <body className={`${inter.variable} ${playfair.variable} font-sans min-h-screen bg-[#050505] text-[#e5e5e5] antialiased selection:bg-white/20 selection:text-white`}>
         <main>{children}</main>
-        <Footer />
       </body>
     </html>
   );
