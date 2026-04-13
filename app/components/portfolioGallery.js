@@ -174,6 +174,14 @@ export default function PortfolioGallery() {
                 {!loadedImages.has(image.id) && (
                   <div className="absolute inset-0 z-10 bg-[#0a0a0a] animate-pulse" />
                 )}
+                
+                {/* Artist Tag - Vertical Signature */}
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 z-20 pointer-events-none origin-left -rotate-90">
+                  <p className="text-[9px] uppercase tracking-[0.4em] text-white/30 group-hover:text-white/80 transition-all duration-700 whitespace-nowrap">
+                    Kaytee &copy; {new Date().getFullYear()}
+                  </p>
+                </div>
+
                 {/* Dynamically size based on aspect ratios or just use intrinsic sizing. For masonry, standard images with auto height works best. */}
                 <Image
                   src={image.src}
@@ -247,9 +255,15 @@ export default function PortfolioGallery() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.98, opacity: 0 }}
               transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
-              className="relative w-full h-[85vh] max-w-7xl"
+              className="relative w-full h-[85vh] max-w-7xl group"
               onClick={(e) => e.stopPropagation()}
             >
+              {/* Lightbox Artist Tag - Subtle Branding */}
+              <div className="absolute -left-12 top-1/2 -translate-y-1/2 z-20 pointer-events-none origin-center -rotate-90 hidden lg:block">
+                <p className="text-[10px] uppercase tracking-[0.8em] text-white/10 whitespace-nowrap">
+                  Authenticated Original — Kaytee
+                </p>
+              </div>
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
