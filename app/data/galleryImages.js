@@ -81,14 +81,6 @@ export const galleryImages = [
   },
   {
     id: 11,
-    src: "/20250901_143326.jpg",
-    alt: "Woman in pink headscarf",
-    category: "portrait",
-    title: "Blush of Presence",
-    description: "The soft hue of tradition meeting the bold clarity of the individual soul."
-  },
-  {
-    id: 12,
     src: "/20251005_124938_1 (1).jpg",
     alt: "Horse on the coastal shore",
     category: "archive",
@@ -96,7 +88,7 @@ export const galleryImages = [
     description: "Untamed grace meeting the infinite horizon, a heartbeat beside the restless tide."
   },
   {
-    id: 13,
+    id: 12,
     src: "/20251005_125020.jpg",
     alt: "Horse in motion by the sea",
     category: "archive",
@@ -104,7 +96,7 @@ export const galleryImages = [
     description: "Strength defined by the spray of the sea, a majestic pause in a world of constant motion."
   },
   {
-    id: 14,
+    id: 13,
     src: "/20251005_125023 (1).jpg",
     alt: "Rider and horse against the sky",
     category: "archive",
@@ -112,7 +104,7 @@ export const galleryImages = [
     description: "Between the earth and the heavens, two spirits move as one against the vastness."
   },
   {
-    id: 15,
+    id: 14,
     src: "/20260109_124615.jpg",
     alt: "The Independence Arch in B&W",
     category: "archive",
@@ -120,7 +112,7 @@ export const galleryImages = [
     description: "The weight of history and the height of hope, standing eternal in the grayscale of memory."
   },
   {
-    id: 16,
+    id: 15,
     src: "/20260109_132728.jpg",
     alt: "Fishing boats at rest",
     category: "archive",
@@ -128,7 +120,7 @@ export const galleryImages = [
     description: "Wooden dreams anchored in the shallows, waiting for the moon to pull them back to the deep."
   },
   {
-    id: 17,
+    id: 16,
     src: "/20260109_133130 (1).jpg",
     alt: "Child running on the beach",
     category: "archive",
@@ -136,7 +128,7 @@ export const galleryImages = [
     description: "Pure joy captured in the blur of a run, a chase after the fading light of childhood."
   },
   {
-    id: 18,
+    id: 17,
     src: "/20260109_133658.jpg",
     alt: "Man leading horse by the sea",
     category: "archive",
@@ -144,7 +136,7 @@ export const galleryImages = [
     description: "A partnership of purpose along the liquid boundary of the world."
   },
   {
-    id: 19,
+    id: 18,
     src: "/20260109_142349 (1).jpg",
     alt: "Detail of sea foam on sand",
     category: "archive",
@@ -152,7 +144,7 @@ export const galleryImages = [
     description: "The ocean's fleeting signature upon the shore, destined to be rewritten with every wave."
   },
   {
-    id: 20,
+    id: 19,
     src: "/20260330_160805 (1).jpg",
     alt: "Woman in bold white and red",
     category: "portrait",
@@ -160,7 +152,7 @@ export const galleryImages = [
     description: "Bold colors and a steady gaze, a study in the confidence of the present moment."
   },
   {
-    id: 21,
+    id: 20,
     src: "/img1.jpg",
     alt: "Minimalist composition of light and shadow",
     category: "archive",
@@ -168,7 +160,7 @@ export const galleryImages = [
     description: "Finding logic in the abstract, where light carves meaning out of the mundane."
   },
   {
-    id: 22,
+    id: 21,
     src: "/img2.jpg",
     alt: "Dynamic city street view",
     category: "street",
@@ -176,7 +168,7 @@ export const galleryImages = [
     description: "The dark, flowing paths of the metropolis, pulsing with the neon blood of the night."
   },
   {
-    id: 23,
+    id: 22,
     src: "/img4.jpg",
     alt: "Elegant and professional portrait",
     category: "portrait",
@@ -184,7 +176,7 @@ export const galleryImages = [
     description: "Authority and empathy captured in a single, unwavering expression."
   },
   {
-    id: 24,
+    id: 23,
     src: "/PXL_20251201_182925073.jpg",
     alt: "Architectural detail of modern interior",
     category: "street",
