@@ -1,23 +1,31 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { galleryImages, categories as categoryNames } from '../data/galleryImages';
+import CustomCursor from './customCursor';
 
 export default function PortfolioGallery() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
   const [loadedImages, setLoadedImages] = useState(new Set());
   const [isLoading, setIsLoading] = useState(true);
+  const [showBio, setShowBio] = useState(false);
+  
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
   useEffect(() => {
-    if (isLoading) {
+    if (isLoading || showBio) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isLoading]);
+  }, [isLoading, showBio]);
 
   useEffect(() => {
     // Give the high-end animation exactly enough time to play out
@@ -74,6 +82,7 @@ export default function PortfolioGallery() {
 
   return (
     <>
+      <CustomCursor />
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div
@@ -115,7 +124,11 @@ export default function PortfolioGallery() {
         )}
       </AnimatePresence>
 
-      <section className={`relative overflow-hidden bg-[#050505] text-[#e5e5e5] min-h-screen font-sans transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <section 
+        ref={containerRef}
+        style={{ position: 'relative' }}
+        className={`relative overflow-hidden bg-[#050505] text-[#e5e5e5] min-h-screen font-sans transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+      >
         <div className="mx-auto max-w-8xl px-6 py-32 sm:px-12 lg:px-24">
 
           {/* Header Section */}
@@ -135,10 +148,20 @@ export default function PortfolioGallery() {
               </motion.h1>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
-              className="mt-12 md:mt-0 flex flex-wrap gap-8"
-            >
+            <div className="flex flex-col items-start md:items-end gap-12">
+              <motion.button
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.4 }}
+                onClick={() => setShowBio(true)}
+                className="group flex items-center gap-4 text-[10px] uppercase tracking-[0.4em] text-[#888] hover:text-white transition-colors"
+              >
+                <span className="w-8 h-[1px] bg-[#333] group-hover:w-12 group-hover:bg-white transition-all duration-500" />
+                Studio / About
+              </motion.button>
+
+              <motion.div
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
+                className="flex flex-wrap gap-8"
+              >
               {categories.map((category) => (
                 <button
                   key={category.id}
@@ -155,8 +178,9 @@ export default function PortfolioGallery() {
               ))}
             </motion.div>
           </div>
+        </div>
 
-          {/* Masonry Grid */}
+        {/* Masonry Grid */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 gap-y-16 space-y-16">
             {filteredImages.map((image, index) => (
               <motion.article
@@ -189,6 +213,7 @@ export default function PortfolioGallery() {
                     height={1200}
                     className="w-full h-auto object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.03] grayscale-[30%] group-hover:grayscale-0"
                     onLoad={() => handleImageLoad(image.id)}
+                    priority={index < 4 || image.src === '/img4.jpg' || image.src === '/20251005_125020.jpg'}
                   />
                 </div>
 
@@ -287,6 +312,96 @@ export default function PortfolioGallery() {
           )}
         </AnimatePresence>
       </section>
+
+      {/* Editorial Bio Overlay */}
+      <AnimatePresence>
+        {showBio && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] flex justify-end"
+          >
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowBio(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+            />
+
+            {/* Content Panel */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+              className="relative w-full max-w-2xl bg-[#0a0a0a] h-full overflow-y-auto p-12 md:p-24 border-l border-[#222]"
+            >
+              <button 
+                onClick={() => setShowBio(false)}
+                className="absolute top-12 right-12 text-[10px] uppercase tracking-[0.4em] text-[#666] hover:text-white transition-colors"
+              >
+                Close [esc]
+              </button>
+
+              <div className="mt-20 space-y-24">
+                <section>
+                  <div className="mb-12">
+                    <p className="text-[10px] uppercase tracking-[0.4em] text-[#444] mb-2">Director & Photographer</p>
+                    <h1 className="text-6xl md:text-8xl font-signature text-white/90 low-indent">Kwaku Ntiri Aninakwa</h1>
+                  </div>
+                  
+                  <p className="text-[10px] uppercase tracking-[0.4em] text-[#888] mb-8">The Philosophy</p>
+                  <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight mb-12 uppercase tracking-wide">
+                    Capturing the <span className="font-editorial">unseen</span> rhythm of the mundane.
+                  </h2>
+                  <div className="space-y-8 text-sm text-[#aaa] font-light leading-relaxed text-justify-balanced">
+                    <p>
+                      The Archive is more than a collection of images; it is a clinical yet poetic exploration of existence. 
+                      Every frame is a dialogue between light and shadow, a silent witness to the fleeting moments 
+                      that define our shared human experience.
+                    </p>
+                    <p>
+                      Based in the intersection of street realism and editorial grace, Kaytee&rsquo;s work seeks to find 
+                      geometry in chaos and stillness in the rush. We believe that photography is not just 
+                      about seeing, but about feeling the weight of the air within the frame.
+                    </p>
+                  </div>
+                </section>
+
+                <section className="pt-12 border-t border-[#222]">
+                  <p className="text-[10px] uppercase tracking-[0.4em] text-[#888] mb-8">The Process</p>
+                  <div className="grid grid-cols-2 gap-12">
+                    <div>
+                      <h4 className="text-xs uppercase tracking-[0.2em] text-white mb-4">Analog Soul</h4>
+                      <p className="text-xs text-[#666] leading-relaxed">Preserving the grain and the honesty of the physical world in every digital capture.</p>
+                    </div>
+                    <div>
+                      <h4 className="text-xs uppercase tracking-[0.2em] text-white mb-4">Digital Precision</h4>
+                      <p className="text-xs text-[#666] leading-relaxed">Ultra-high fidelity optimization for the modern era of visual storytelling.</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="pt-12 border-t border-[#222]">
+                  <div className="flex justify-between items-end">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.4em] text-[#888] mb-4">Contact Studio</p>
+                      <p className="text-xl font-serif text-white tracking-widest">KAYTEE@ARCHIVE.COM</p>
+                    </div>
+                    <div className="text-right">
+                       <p className="text-[9px] uppercase tracking-[0.4em] text-[#444]">&copy; 2026 THE ARCHIVE</p>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
+
   );
 }

@@ -35,3 +35,38 @@ body {
   background: #555555;
 }
 
+@layer base {
+  * {
+    cursor: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  @layer base {
+    * {
+      cursor: auto !important;
+    }
+  }
+}
+
+.font-editorial {
+  font-family: var(--font-playfair), serif;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.font-signature {
+  font-family: var(--font-signature), cursive;
+  font-weight: 400;
+}
+
+.text-justify-balanced {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Custom transitions */
+.transition-slow {
+  transition: all 1.2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+

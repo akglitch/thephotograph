@@ -182,6 +182,118 @@ export const galleryImages = [
     category: "street",
     title: "Internal Vistas",
     description: "The structure of our inner spaces, where modern design creates new horizons."
+  },
+  {
+    id: 24,
+    src: "/20240307_153350 (2).jpg",
+    alt: "Soft light in a minimalist space",
+    category: "archive",
+    title: "Ethereal Boundaries",
+    description: "Where light meets the limit of the frame, creating a soft transition into the unknown."
+  },
+  {
+    id: 25,
+    src: "/20240513_081823 (1).jpg",
+    alt: "Nature reclaiming urban space",
+    category: "street",
+    title: "The Green Interruption",
+    description: "A persistent reach of life through the cracks of the concrete jungle."
+  },
+  {
+    id: 26,
+    src: "/20240527_141140.jpg",
+    alt: "Atmospheric street scene",
+    category: "street",
+    title: "Rain-Slicked Dreams",
+    description: "Reflections of neon and nostalgia on the evening pavement."
+  },
+  {
+    id: 27,
+    src: "/20250325_175843.jpg",
+    alt: "Portrait in dramatic lighting",
+    category: "portrait",
+    title: "Shadow's Grace",
+    description: "The interplay of light and character, revealing the depth of a silent moment."
+  },
+  {
+    id: 28,
+    src: "/20260109_132707.jpg",
+    alt: "Maritime landscape",
+    category: "archive",
+    title: "The Salted Horizon",
+    description: "The infinite call of the sea, where every wave tells a story of return."
+  },
+  {
+    id: 29,
+    src: "/20260109_154819 (1).jpg",
+    alt: "Urban geometry",
+    category: "street",
+    title: "Angles of Convergence",
+    description: "A study in the sharp lines that define our modern paths."
+  },
+  {
+    id: 30,
+    src: "/20260111_171141.jpg",
+    alt: "Evening glow on architecture",
+    category: "street",
+    title: "The Golden Monolith",
+    description: "Standing tall against the fading light, a beacon of modern structure."
+  },
+  {
+    id: 31,
+    src: "/PXL_20251130_174849600 (1).jpg",
+    alt: "Atmospheric landscape",
+    category: "archive",
+    title: "The Veiled Distance",
+    description: "Mystery captured in the depth of the horizon, where the world fades into mist."
+  },
+  {
+    id: 32,
+    src: "/20250603_123026.jpg",
+    alt: "Deep blue water textures",
+    category: "archive",
+    title: "Cerulean Depths",
+    description: "A liquid study in immersion and color, capturing the infinite patterns of the salted deep."
+  },
+  {
+    id: 33,
+    src: "/20250828_113956.jpg",
+    alt: "Silhouette against sunset",
+    category: "portrait",
+    title: "Golden Hour Silhouette",
+    description: "Defined by light yet carved in shadow, a profile of existence against the dying fire of the day."
+  },
+  {
+    id: 34,
+    src: "/20250908_175933.jpg",
+    alt: "Complex urban architecture",
+    category: "street",
+    title: "Urban Labyrinth",
+    description: "The intricate dance of concrete and glass, where every angle leads to a new discovery."
+  },
+  {
+    id: 35,
+    src: "/20260118_182548 (1).jpg",
+    alt: "Small boat on a vast sea",
+    category: "archive",
+    title: "The Lone Sailor",
+    description: "A singular point of purpose amidst the vast, liquid indifference of the world's end."
+  },
+  {
+    id: 36,
+    src: "/IMG_4923.jpg",
+    alt: "High contrast monochrome portrait",
+    category: "archive",
+    title: "High-End Monochrome",
+    description: "The clinical beauty of light, stripped of color to reveal the raw texture of reality."
+  },
+  {
+    id: 37,
+    src: "/PXL_20251005_125811293.NIGHT.jpg",
+    alt: "Street scene at night",
+    category: "street",
+    title: "Nocturnal Rhythm",
+    description: "The city's electric pulse captured in the quiet hours of neon and midnight."
   }
 ];
 
