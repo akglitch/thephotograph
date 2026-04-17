@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display, Mr_De_Haviland } from "next/font/google";
 import './globals.css';
+import BackToTop from './components/backToTop';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${inter.variable} ${playfair.variable} ${signature.variable} font-sans min-h-screen bg-[#050505] text-[#e5e5e5] antialiased selection:bg-white/20 selection:text-white`}>
         <main>{children}</main>
+        <BackToTop />
       </body>
     </html>
   );

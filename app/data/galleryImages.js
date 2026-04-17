@@ -186,39 +186,39 @@ export const galleryImages = [
   {
     id: 24,
     src: "/20240307_153350 (2).jpg",
-    alt: "Soft light in a minimalist space",
-    category: "archive",
-    title: "Ethereal Boundaries",
-    description: "Where light meets the limit of the frame, creating a soft transition into the unknown."
+    alt: "Multistory building with palm trees",
+    category: "street",
+    title: "The Terraced Dormitory",
+    description: "A study in urban geometry and tropical life, where the sun-baked facades meet the swaying palms."
   },
   {
     id: 25,
     src: "/20240513_081823 (1).jpg",
-    alt: "Nature reclaiming urban space",
-    category: "street",
-    title: "The Green Interruption",
-    description: "A persistent reach of life through the cracks of the concrete jungle."
+    alt: "Lush green crops in a field",
+    category: "archive",
+    title: "Verdant Resilience",
+    description: "The rhythmic sway of green life, a testament to the quiet strength of the field under the open sky."
   },
   {
     id: 26,
     src: "/20240527_141140.jpg",
-    alt: "Atmospheric street scene",
+    alt: "Person resting at a cafe table",
     category: "street",
-    title: "Rain-Slicked Dreams",
-    description: "Reflections of neon and nostalgia on the evening pavement."
+    title: "The Midday Recluse",
+    description: "A momentary lapse into stillness amidst the neon hum of the city's fast-paced heart."
   },
   {
     id: 27,
     src: "/20250325_175843.jpg",
-    alt: "Portrait in dramatic lighting",
-    category: "portrait",
-    title: "Shadow's Grace",
-    description: "The interplay of light and character, revealing the depth of a silent moment."
+    alt: "Airplane in flight against a cloudy sky",
+    category: "archive",
+    title: "Celestial Departure",
+    description: "A lone vessel cutting through the infinite gray, a fleeting bridge between horizons."
   },
   {
     id: 28,
     src: "/20260109_132707.jpg",
-    alt: "Maritime landscape",
+    alt: "Beach flags against a vast horizon",
     category: "archive",
     title: "The Salted Horizon",
     description: "The infinite call of the sea, where every wave tells a story of return."
@@ -226,75 +226,84 @@ export const galleryImages = [
   {
     id: 29,
     src: "/20260109_154819 (1).jpg",
-    alt: "Urban geometry",
-    category: "street",
-    title: "Angles of Convergence",
-    description: "A study in the sharp lines that define our modern paths."
+    alt: "Child playing in the ocean surf",
+    category: "archive",
+    title: "The Shoreline Dancer",
+    description: "Joy captured in the spray and the sand, where the tide meets the laughter of the young."
   },
   {
     id: 30,
     src: "/20260111_171141.jpg",
-    alt: "Evening glow on architecture",
-    category: "street",
-    title: "The Golden Monolith",
-    description: "Standing tall against the fading light, a beacon of modern structure."
+    alt: "Bird silhouette on a tree branch",
+    category: "archive",
+    title: "The Silent Sentinel",
+    description: "Carved in shadow against the white void, a singular witness to the passing winds."
   },
   {
     id: 31,
     src: "/PXL_20251130_174849600 (1).jpg",
-    alt: "Atmospheric landscape",
-    category: "archive",
-    title: "The Veiled Distance",
-    description: "Mystery captured in the depth of the horizon, where the world fades into mist."
+    alt: "Stadium with players at sunset",
+    category: "street",
+    title: "Colosseum of Souls",
+    description: "The electric anticipation of the arena, where the sky bleeds into the floodlights of victory."
   },
   {
     id: 32,
     src: "/20250603_123026.jpg",
-    alt: "Deep blue water textures",
-    category: "archive",
-    title: "Cerulean Depths",
-    description: "A liquid study in immersion and color, capturing the infinite patterns of the salted deep."
+    alt: "Portrait of a woman with braids",
+    category: "portrait",
+    title: "The Finishing Touch",
+    description: "A study in focus and detail, where the artisan's hand meets the beauty of a quiet gaze."
   },
   {
     id: 33,
     src: "/20250828_113956.jpg",
-    alt: "Silhouette against sunset",
-    category: "portrait",
-    title: "Golden Hour Silhouette",
-    description: "Defined by light yet carved in shadow, a profile of existence against the dying fire of the day."
+    alt: "Hanging clay pots decorative ceiling",
+    category: "street",
+    title: "Terra Cotta Constellation",
+    description: "A canopy of woven shadows and clay, creating a celestial map of earthly design."
   },
   {
     id: 34,
     src: "/20250908_175933.jpg",
-    alt: "Complex urban architecture",
+    alt: "Cafe interior looking out at the street",
     category: "street",
-    title: "Urban Labyrinth",
-    description: "The intricate dance of concrete and glass, where every angle leads to a new discovery."
+    title: "Intersection of Gaze",
+    description: "Watching the world flow by through the liquid glass of a momentary sanctuary."
   },
   {
     id: 35,
     src: "/20260118_182548 (1).jpg",
-    alt: "Small boat on a vast sea",
+    alt: "Single light source in deep darkness",
     category: "archive",
-    title: "The Lone Sailor",
-    description: "A singular point of purpose amidst the vast, liquid indifference of the world's end."
+    title: "The Glimmer of Solitude",
+    description: "A singular point of warmth in the immense devouring dark, the heart's anchor in the void."
   },
   {
     id: 36,
     src: "/IMG_4923.jpg",
-    alt: "High contrast monochrome portrait",
-    category: "archive",
-    title: "High-End Monochrome",
-    description: "The clinical beauty of light, stripped of color to reveal the raw texture of reality."
+    alt: "Modern architecture with palm tree silhouettes",
+    category: "street",
+    title: "Tropical Symmetry",
+    description: "The orderly grace of structured life amidst the frantic reach of nature's fronds."
   },
   {
     id: 37,
     src: "/PXL_20251005_125811293.NIGHT.jpg",
-    alt: "Street scene at night",
-    category: "street",
-    title: "Nocturnal Rhythm",
-    description: "The city's electric pulse captured in the quiet hours of neon and midnight."
+    alt: "Person standing on rocks by the sea",
+    category: "archive",
+    title: "The Sea's Confession",
+    description: "Standing at the edge of the world's deep sigh, a soul anchored by the weight of ancient stone."
+  },
+  {
+    id: 38,
+    src: "/20250910_124231 (1).jpg",
+    alt: "Modern woven furniture against wood paneling",
+    category: "archive",
+    title: "Woven Equilibrium",
+    description: "Where the rhythm of the loom meets the stillness of the wood, a sanctuary of structural grace and earthy repose."
   }
+
 ];
 
 export const categories = [
