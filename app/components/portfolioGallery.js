@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { galleryImages, categories as categoryNames } from '../data/galleryImages';
 import CustomCursor from './customCursor';
+import CommentSection from './commentSection';
 
 export default function PortfolioGallery() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -229,6 +230,9 @@ export default function PortfolioGallery() {
               </motion.article>
             ))}
           </div>
+
+          {/* Guestbook / Comment Section */}
+          <CommentSection />
 
           {/* Footer Call to Action */}
           <motion.div
