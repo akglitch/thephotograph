@@ -37,16 +37,16 @@ export default function Navigation() {
               <Link href="/" className="group">
                 <div className="flex items-center space-x-3">
                   <div className="relative">
-                    <div className="w-8 h-8 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
-                      <div className="w-4 h-4 border-2 border-white rounded-full"></div>
+                    <div className="w-8 h-8 bg-foreground/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-foreground/20">
+                      <div className="w-4 h-4 border-2 border-foreground rounded-full"></div>
                     </div>
                   </div>
                   
                   <div className="flex flex-col">
-                    <span className="text-2xl font-light text-white tracking-tight">
+                    <span className="text-2xl font-light text-foreground tracking-tight">
                       Kaytee
                     </span>
-                    <span className="text-xs tracking-widest uppercase text-white/60">
+                    <span className="text-xs tracking-widest uppercase text-foreground/60">
                       Photography
                     </span>
                   </div>
@@ -67,8 +67,8 @@ export default function Navigation() {
                     href={item.href}
                     className={`relative group text-sm font-medium transition-all duration-300 ${
                       pathname === item.href
-                        ? 'text-white'
-                        : 'text-white/70 hover:text-white'
+                        ? 'text-foreground'
+                        : 'text-foreground/70 hover:text-foreground'
                     }`}
                   >
                     <span className="relative z-10">
@@ -76,7 +76,7 @@ export default function Navigation() {
                     </span>
                     
                     {/* Animated underline */}
-                    <div className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${
+                    <div className={`absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full ${
                       pathname === item.href ? 'w-full' : ''
                     }`} />
                   </Link>
@@ -91,7 +91,7 @@ export default function Navigation() {
               >
                 <Link
                   href="/contact"
-                  className="group relative bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 ml-4"
+                  className="group relative bg-foreground text-background px-6 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition-all duration-300 transform hover:scale-105 ml-4"
                 >
                   <span className="relative z-10">Book Session</span>
                 </Link>
@@ -107,7 +107,7 @@ export default function Navigation() {
             >
               <button
                 type="button"
-                className="inline-flex items-center justify-center p-3 rounded-2xl bg-white/10 text-white backdrop-blur-md hover:bg-white/20 transition-all duration-300"
+                className="inline-flex items-center justify-center p-3 rounded-2xl bg-foreground/10 text-foreground backdrop-blur-md hover:bg-foreground/20 transition-all duration-300"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 <span className="sr-only">Open main menu</span>
@@ -131,7 +131,7 @@ export default function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
             
@@ -141,22 +141,22 @@ export default function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 bottom-0 w-80 bg-white/95 backdrop-blur-xl z-50 lg:hidden shadow-2xl border-l border-white/20"
+              className="fixed top-0 right-0 bottom-0 w-80 bg-background/95 backdrop-blur-xl z-50 lg:hidden shadow-2xl border-l border-border"
             >
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200/50">
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-gradient-to-br from-gray-900 to-black rounded-full flex items-center justify-center">
-                    <div className="w-4 h-4 border-2 border-white rounded-full"></div>
+                  <div className="w-8 h-8 bg-foreground/10 rounded-full flex items-center justify-center">
+                    <div className="w-4 h-4 border-2 border-foreground rounded-full"></div>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xl font-light text-gray-900">Kaytee</span>
-                    <span className="text-xs tracking-widest uppercase text-gray-500">Photography</span>
+                    <span className="text-xl font-light text-foreground">Kaytee</span>
+                    <span className="text-xs tracking-widest uppercase text-muted-foreground">Photography</span>
                   </div>
                 </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200"
+                  className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   <XMarkIcon className="h-6 w-6" />
                 </button>
@@ -175,15 +175,15 @@ export default function Navigation() {
                       href={item.href}
                       className={`group flex items-center justify-between p-4 rounded-2xl transition-all duration-300 ${
                         pathname === item.href
-                          ? 'bg-gray-900 text-white shadow-2xl'
-                          : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                          ? 'bg-foreground text-background shadow-2xl'
+                          : 'text-foreground/80 hover:bg-muted hover:text-foreground'
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <div className="flex flex-col">
                         <span className="font-medium text-lg">{item.name}</span>
                         <span className={`text-sm ${
-                          pathname === item.href ? 'text-gray-300' : 'text-gray-500'
+                          pathname === item.href ? 'opacity-80' : 'text-muted-foreground'
                         }`}>
                           {item.description}
                         </span>
@@ -191,7 +191,7 @@ export default function Navigation() {
                       <motion.div
                         whileHover={{ x: 5 }}
                         className={`w-2 h-2 rounded-full ${
-                          pathname === item.href ? 'bg-white' : 'bg-gray-300 group-hover:bg-gray-900'
+                          pathname === item.href ? 'bg-background' : 'bg-muted-foreground/30 group-hover:bg-foreground'
                         }`}
                       />
                     </Link>
@@ -203,7 +203,7 @@ export default function Navigation() {
               <div className="absolute bottom-6 left-6 right-6">
                 <Link
                   href="/contact"
-                  className="block w-full bg-gradient-to-r from-gray-900 to-black text-white text-center py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="block w-full bg-foreground text-background text-center py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Book Your Session

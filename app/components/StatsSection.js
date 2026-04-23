@@ -44,9 +44,9 @@ export default function StatsSection() {
       
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 border-2 border-white rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-white rounded-full"></div>
+        <div className="absolute top-10 left-10 w-32 h-32 border-2 border-foreground rounded-full"></div>
+        <div className="absolute bottom-10 right-10 w-24 h-24 border-2 border-foreground rounded-full"></div>
+        <div className="absolute top-1/2 left-1/4 w-16 h-16 border border-foreground rounded-full"></div>
       </div>
 
       <div className="max-w-8xl mx-auto px-6 relative z-10">
@@ -62,14 +62,14 @@ export default function StatsSection() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-4 text-sm uppercase tracking-widest text-white/60 mb-6"
+            className="inline-flex items-center gap-4 text-sm uppercase tracking-widest text-foreground/60 mb-6"
           >
-            <div className="w-12 h-px bg-white/30"></div>
+            <div className="w-12 h-px bg-foreground/30"></div>
             TRUSTED EXCELLENCE
-            <div className="w-12 h-px bg-white/30"></div>
+            <div className="w-12 h-px bg-foreground/30"></div>
           </motion.div>
 
-          <h2 className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight">
+          <h2 className="text-5xl md:text-7xl font-light text-foreground mb-6 tracking-tight">
             <span className="block">Numbers That</span>
             <span className="block italic font-serif text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
               Speak Volumes
@@ -80,7 +80,7 @@ export default function StatsSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed font-light"
+            className="text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed font-light"
           >
             Behind every statistic lies a story of dedication, passion, and unwavering commitment to capturing life's most precious moments.
           </motion.p>
@@ -102,7 +102,7 @@ export default function StatsSection() {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl rounded-3xl p-8 border border-white/10 hover:border-white/20 transition-all duration-700 transform hover:-translate-y-3 hover:scale-105">
+              <div className="relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-xl rounded-3xl p-8 border border-foreground/10 hover:border-foreground/20 transition-all duration-700 transform hover:-translate-y-3 hover:scale-105">
                 
                 {/* Background Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -122,7 +122,7 @@ export default function StatsSection() {
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.8, delay: index * 0.2 + 0.8 }}
-                  className="text-5xl md:text-6xl font-bold text-white mb-4"
+                  className="text-5xl md:text-6xl font-bold text-foreground mb-4"
                 >
                   <motion.span
                     initial={{ scale: 0.5 }}
@@ -143,7 +143,7 @@ export default function StatsSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 1.2 }}
-                  className="text-lg font-semibold text-white mb-3"
+                  className="text-lg font-semibold text-foreground mb-3"
                 >
                   {stat.label}
                 </motion.div>
@@ -153,7 +153,7 @@ export default function StatsSection() {
                   initial={{ opacity: 0 }}
                   animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 + 1.4 }}
-                  className="text-white/60 text-sm leading-relaxed"
+                  className="text-foreground/60 text-sm leading-relaxed"
                 >
                   {stat.description}
                 </motion.div>
@@ -167,7 +167,7 @@ export default function StatsSection() {
                 {[...Array(3)].map((_, i) => (
                   <motion.div
                     key={i}
-                    className="absolute w-1 h-1 bg-white rounded-full"
+                    className="absolute w-1 h-1 bg-foreground rounded-full"
                     initial={{ 
                       x: Math.random() * 100 + '%', 
                       y: Math.random() * 100 + '%',
@@ -197,17 +197,17 @@ export default function StatsSection() {
           transition={{ duration: 0.8, delay: 1.5 }}
           className="text-center mt-16"
         >
-          <div className="inline-flex items-center gap-6 text-white/50">
-            <div className="w-16 h-px bg-white/30"></div>
+          <div className="inline-flex items-center gap-6 text-foreground/50">
+            <div className="w-16 h-px bg-foreground/30"></div>
             <span className="text-sm uppercase tracking-widest">Ready to Create Your Story?</span>
-            <div className="w-16 h-px bg-white/30"></div>
+            <div className="w-16 h-px bg-foreground/30"></div>
           </div>
         </motion.div>
       </div>
 
       {/* Animated Background Orbs */}
-      <div className="absolute top-1/4 -left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
-      <div className="absolute bottom-1/4 -right-10 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
+      <div className="absolute top-1/4 -left-10 w-20 h-20 bg-foreground/5 rounded-full blur-xl"></div>
+      <div className="absolute bottom-1/4 -right-10 w-24 h-24 bg-foreground/5 rounded-full blur-xl"></div>
     </section>
   );
 }

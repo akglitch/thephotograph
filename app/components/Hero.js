@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-black">
+    <section className="relative h-screen overflow-hidden bg-background">
       {/* Animated Background Images */}
       <div className="absolute inset-0">
         {backgroundImages.map((image, index) => (
@@ -138,8 +138,8 @@ export default function Hero() {
                   onClick={() => setCurrentImage(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-500 ${
                     currentImage === index 
-                      ? 'bg-white scale-110 shadow-lg' 
-                      : 'bg-white/40 hover:bg-white/60'
+                      ? 'bg-foreground scale-110 shadow-lg' 
+                      : 'bg-foreground/40 hover:bg-foreground/60'
                   }`}
                   aria-label={`Show image ${index + 1}`}
                 />

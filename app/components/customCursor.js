@@ -111,7 +111,7 @@ export default function CustomCursor() {
         <motion.span
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="text-[10px] font-sans font-bold tracking-[0.2em] text-black"
+          className="text-[10px] font-sans font-bold tracking-[0.2em] text-background"
         >
           VIEW
         </motion.span>

@@ -199,8 +199,8 @@ export default function Gallery() {
                 onClick={() => setActiveCategory(category.id)}
                 className={`group relative px-6 py-3 rounded-full font-medium text-sm uppercase tracking-wider transition-all duration-500 ${
                   activeCategory === category.id
-                    ? 'text-white bg-gray-900 shadow-2xl transform scale-105'
-                    : 'text-gray-600 hover:text-gray-900 bg-white/80 backdrop-blur-sm hover:bg-white shadow-lg hover:shadow-xl'
+                    ? 'text-foreground bg-gray-900 shadow-2xl transform scale-105'
+                    : 'text-gray-600 hover:text-gray-900 bg-foreground/80 backdrop-blur-sm hover:bg-foreground shadow-lg hover:shadow-xl'
                 }`}
               >
                 <span className="relative z-10">{category.name}</span>
@@ -237,7 +237,7 @@ export default function Gallery() {
                     type: "spring",
                     stiffness: 100
                   }}
-                  className="break-inside-avoid group relative bg-white rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-[1.02]"
+                  className="break-inside-avoid group relative bg-foreground rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-700 overflow-hidden cursor-pointer transform hover:scale-[1.02]"
                   onClick={() => openLightbox(image)}
                 >
                   {/* Image Container */}
@@ -265,7 +265,7 @@ export default function Gallery() {
                     
                     {/* Info Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="text-white">
+                      <div className="text-foreground">
                         <h3 className="text-xl font-semibold mb-2">{image.title}</h3>
                         <p className="text-sm text-gray-300 mb-3 line-clamp-2">{image.description}</p>
                         <div className="flex items-center justify-between text-xs text-gray-400">
@@ -276,7 +276,7 @@ export default function Gallery() {
                     </div>
 
                     {/* Quick View Indicator */}
-                    <div className="absolute top-4 right-4 bg-black/80 text-white px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute top-4 right-4 bg-background/80 text-foreground px-3 py-1 rounded-full text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       Click to view
                     </div>
                   </div>
@@ -310,13 +310,13 @@ export default function Gallery() {
             transition={{ delay: 0.8 }}
             className="text-center mt-20"
           >
-            <div className="bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-white">
+            <div className="bg-gradient-to-r from-gray-900 to-black rounded-2xl p-12 text-foreground">
               <h2 className="text-3xl md:text-4xl font-light mb-4">Ready to Create Your Story?</h2>
               <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
                 Let's collaborate to capture the moments that matter most. 
                 Your unique story deserves to be told through exceptional photography.
               </p>
-              <button className="bg-white text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl">
+              <button className="bg-foreground text-gray-900 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl">
                 Begin Your Journey
               </button>
             </div>
@@ -331,7 +331,7 @@ export default function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-background/95 z-50 flex items-center justify-center p-4"
             onClick={closeLightbox}
           >
             <motion.div
@@ -344,27 +344,27 @@ export default function Gallery() {
               {/* Close Button */}
               <button
                 onClick={closeLightbox}
-                className="absolute top-4 right-4 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 group"
+                className="absolute top-4 right-4 z-10 bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full p-3 transition-all duration-300 group"
               >
                 <div className="w-6 h-6 relative">
-                  <div className="absolute inset-0 bg-white group-hover:bg-gray-300 transition-colors duration-300 rotate-45 rounded-full"></div>
-                  <div className="absolute inset-0 bg-white group-hover:bg-gray-300 transition-colors duration-300 -rotate-45 rounded-full"></div>
+                  <div className="absolute inset-0 bg-foreground group-hover:bg-gray-300 transition-colors duration-300 rotate-45 rounded-full"></div>
+                  <div className="absolute inset-0 bg-foreground group-hover:bg-gray-300 transition-colors duration-300 -rotate-45 rounded-full"></div>
                 </div>
               </button>
 
               {/* Navigation Arrows */}
               <button
                 onClick={() => navigateLightbox(-1)}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
               >
-                <div className="w-6 h-6 border-l-2 border-t-2 border-white transform -rotate-45 group-hover:border-gray-300 transition-colors duration-300"></div>
+                <div className="w-6 h-6 border-l-2 border-t-2 border-foreground transform -rotate-45 group-hover:border-gray-300 transition-colors duration-300"></div>
               </button>
 
               <button
                 onClick={() => navigateLightbox(1)}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-foreground/10 hover:bg-foreground/20 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
               >
-                <div className="w-6 h-6 border-r-2 border-t-2 border-white transform rotate-45 group-hover:border-gray-300 transition-colors duration-300"></div>
+                <div className="w-6 h-6 border-r-2 border-t-2 border-foreground transform rotate-45 group-hover:border-gray-300 transition-colors duration-300"></div>
               </button>
 
               {/* Image */}
@@ -378,7 +378,7 @@ export default function Gallery() {
                 />
                 
                 {/* Image Info */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8 text-white">
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8 text-foreground">
                   <h3 className="text-2xl font-semibold mb-2">{selectedImage.title}</h3>
                   <p className="text-gray-300 mb-3">{selectedImage.description}</p>
                   <div className="flex items-center justify-between text-sm text-gray-400">

@@ -68,7 +68,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="relative py-24 bg-white">
+    <section className="relative py-24 bg-foreground">
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header */}
@@ -118,7 +118,7 @@ export default function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-foreground border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
                     placeholder="Enter your name"
                     required
                   />
@@ -134,7 +134,7 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-foreground border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200"
                     placeholder="your.email@example.com"
                     required
                   />
@@ -150,7 +150,7 @@ export default function Contact() {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 bg-foreground border border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell me about your project and vision..."
                     required
                   />
@@ -161,14 +161,14 @@ export default function Contact() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gray-900 text-white py-3 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gray-900 text-foreground py-3 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
                       <motion.div
                         animate={{ rotate: 360 }}
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                        className="w-4 h-4 border-2 border-foreground border-t-transparent rounded-full"
                       />
                       Sending...
                     </>
@@ -207,7 +207,7 @@ export default function Contact() {
                     className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors duration-200"
                   >
                     <div className="bg-gray-900 p-2 rounded-lg flex-shrink-0">
-                      <item.icon className="h-5 w-5 text-white" />
+                      <item.icon className="h-5 w-5 text-foreground" />
                     </div>
                     <div>
                       <p className="font-medium text-gray-900">{item.value}</p>
@@ -229,7 +229,7 @@ export default function Contact() {
                     href={social.url}
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300 text-sm font-medium"
+                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-900 hover:text-foreground hover:border-gray-900 transition-all duration-300 text-sm font-medium"
                   >
                     {social.name}
                   </motion.a>
@@ -242,7 +242,7 @@ export default function Contact() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="bg-gray-900 text-white rounded-xl p-6"
+              className="bg-gray-900 text-foreground rounded-xl p-6"
             >
               <h4 className="font-semibold mb-3">What to Expect</h4>
               <ul className="text-sm space-y-2 text-gray-300">

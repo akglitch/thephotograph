@@ -3,11 +3,44 @@
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+}
+
+@layer base {
+  :root {
+    --background: #fafafa;
+    --foreground: #111111;
+    --muted: #e5e5e5;
+    --muted-foreground: #444444;
+    --border: #cccccc;
+  }
+  
+  .dark {
+    --background: #050505;
+    --foreground: #e5e5e5;
+    --muted: #1a1a1a;
+    --muted-foreground: #888888;
+    --border: #222222;
+  }
+
+
+  .midnight {
+    --background: #000b18;
+    --foreground: #e0e6ed;
+    --muted: #01162d;
+    --muted-foreground: #6b829c;
+    --border: #022346;
+  }
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #050505;
+  background-color: var(--background);
 }
 
 body {
@@ -24,15 +57,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333333;
+  background: var(--border);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555555;
+  background: var(--muted-foreground);
 }
 
 @layer base {

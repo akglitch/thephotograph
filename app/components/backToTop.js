@@ -42,21 +42,21 @@ export default function BackToTop() {
           <div className="relative flex flex-col items-center h-24 mb-4">
              {/* Chevron top */}
              <motion.div 
-              className="w-2 h-2 border-t border-l border-white rotate-45 mb-[-1px] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+              className="w-2 h-2 border-t border-l border-foreground rotate-45 mb-[-1px] opacity-40 group-hover:opacity-100 transition-opacity duration-500"
             />
             {/* Stem */}
             <motion.div 
-              className="w-[1px] flex-grow bg-white/20 group-hover:bg-white transition-all duration-700 h-full"
+              className="w-[1px] flex-grow bg-foreground/20 group-hover:bg-foreground transition-all duration-700 h-full"
             />
             
             {/* Label - Rotated Vertically */}
-            <p className="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-[9px] uppercase tracking-[0.4em] text-white/40 group-hover:text-white transition-all duration-700 whitespace-nowrap">
+            <p className="absolute -left-8 top-1/2 -translate-y-1/2 -rotate-90 text-[9px] uppercase tracking-[0.4em] text-foreground/40 group-hover:text-foreground transition-all duration-700 whitespace-nowrap">
               Back to top
             </p>
           </div>
 
           {/* Progress Dot (Subtle) */}
-          <div className="w-[3px] h-[3px] rounded-full bg-white/40 group-hover:bg-white transition-all duration-500" />
+          <div className="w-[3px] h-[3px] rounded-full bg-foreground/40 group-hover:bg-foreground transition-all duration-500" />
         </motion.button>
       )}
     </AnimatePresence>

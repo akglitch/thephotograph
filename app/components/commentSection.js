@@ -167,19 +167,19 @@ export default function CommentSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="mt-40 pt-20 border-t border-[#222]"
+        className="mt-40 pt-20 border-t border-border"
         id="guestbook"
       >
         {/* Section Header */}
         <div className="mb-20">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#888] mb-6">Leave a mark</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Leave a mark</p>
           <h2 
-            className="text-4xl md:text-6xl font-serif text-white uppercase tracking-widest font-light inline-block cursor-pointer select-none"
+            className="text-4xl md:text-6xl font-serif text-foreground uppercase tracking-widest font-light inline-block cursor-pointer select-none"
             onClick={handleTitleClick}
           >
-            The Guestbook {isAdmin && <span className="text-xl ml-2 text-[#666]">🔓</span>}
+            The Guestbook {isAdmin && <span className="text-xl ml-2 text-muted-foreground">🔓</span>}
           </h2>
-          <p className="mt-6 text-sm text-[#666] font-light max-w-md leading-relaxed">
+          <p className="mt-6 text-sm text-muted-foreground font-light max-w-md leading-relaxed">
             Share a thought, a reflection, or a word about what you found here.
           </p>
         </div>
@@ -193,7 +193,7 @@ export default function CommentSection() {
               <div className="relative">
                 <label
                   htmlFor="comment-name"
-                  className="block text-[10px] uppercase tracking-[0.4em] text-[#666] mb-3"
+                  className="block text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-3"
                 >
                   Your Name
                 </label>
@@ -205,7 +205,7 @@ export default function CommentSection() {
                   required
                   maxLength={60}
                   placeholder="e.g. Ama Owusu"
-                  className="w-full bg-transparent border-b border-[#333] focus:border-white outline-none text-white text-sm font-light py-3 placeholder:text-[#444] transition-colors duration-500"
+                  className="w-full bg-transparent border-b-2 border-border focus:border-foreground outline-none text-foreground text-base font-medium py-3 placeholder:text-muted-foreground/40 transition-colors duration-500"
                 />
               </div>
 
@@ -213,7 +213,7 @@ export default function CommentSection() {
               <div className="relative">
                 <label
                   htmlFor="comment-message"
-                  className="block text-[10px] uppercase tracking-[0.4em] text-[#666] mb-3"
+                  className="block text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-3"
                 >
                   Your Reflection
                 </label>
@@ -225,9 +225,9 @@ export default function CommentSection() {
                   maxLength={500}
                   rows={5}
                   placeholder="What did you feel when you looked?"
-                  className="w-full bg-transparent border-b border-[#333] focus:border-white outline-none text-white text-sm font-light py-3 placeholder:text-[#444] transition-colors duration-500 resize-none leading-relaxed"
+                  className="w-full bg-transparent border-b-2 border-border focus:border-foreground outline-none text-foreground text-base font-medium py-3 placeholder:text-muted-foreground/40 transition-colors duration-500 resize-none leading-relaxed"
                 />
-                <p className="text-[10px] text-[#444] text-right mt-2 tracking-wider">
+                <p className="text-[10px] text-muted-foreground text-right mt-2 tracking-wider">
                   {message.length} / 500
                 </p>
               </div>
@@ -237,16 +237,16 @@ export default function CommentSection() {
                 <button
                   type="button"
                   onClick={() => setIsPrivate(!isPrivate)}
-                  className={`w-4 h-4 border transition-colors flex items-center justify-center ${isPrivate ? 'bg-white border-white' : 'border-[#333] bg-transparent'}`}
+                  className={`w-4 h-4 border transition-colors flex items-center justify-center ${isPrivate ? 'bg-foreground border-foreground' : 'border-border bg-transparent'}`}
                 >
                   {isPrivate && (
-                    <svg className="w-3 h-3 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-3 h-3 text-background" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   )}
                 </button>
                 <label 
-                  className="text-[10px] uppercase tracking-[0.3em] text-[#888] cursor-pointer select-none"
+                  className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground cursor-pointer select-none"
                   onClick={() => setIsPrivate(!isPrivate)}
                 >
                   Keep this private (Only Kaytee will see)
@@ -272,7 +272,7 @@ export default function CommentSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !name.trim() || !message.trim()}
-                  className="text-xs uppercase tracking-[0.3em] text-white border border-[#333] px-10 py-4 hover:bg-white hover:text-black transition-colors duration-500 disabled:opacity-30 disabled:cursor-not-allowed"
+                  className="text-xs uppercase tracking-[0.3em] text-foreground border border-border px-10 py-4 hover:bg-foreground hover:text-background transition-colors duration-500 disabled:opacity-30 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Sending...' : 'Submit'}
                 </button>
@@ -283,7 +283,7 @@ export default function CommentSection() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0 }}
-                      className="text-[10px] uppercase tracking-[0.4em] text-[#888]"
+                      className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground"
                     >
                       Received — Thank you.
                     </motion.p>
@@ -299,9 +299,9 @@ export default function CommentSection() {
               <div className="space-y-8">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="animate-pulse space-y-3">
-                    <div className="h-3 bg-[#1a1a1a] rounded w-1/3" />
-                    <div className="h-3 bg-[#1a1a1a] rounded w-full" />
-                    <div className="h-3 bg-[#1a1a1a] rounded w-4/5" />
+                    <div className="h-3 bg-muted rounded w-1/3" />
+                    <div className="h-3 bg-muted rounded w-full" />
+                    <div className="h-3 bg-muted rounded w-4/5" />
                   </div>
                 ))}
               </div>
@@ -313,7 +313,7 @@ export default function CommentSection() {
                 animate={{ opacity: 1 }}
                 className="pt-4"
               >
-                <p className="text-xs uppercase tracking-[0.4em] text-[#444]">
+                <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
                   No entries yet. Be the first.
                 </p>
               </motion.div>
@@ -325,30 +325,30 @@ export default function CommentSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="group pb-10 border-b border-[#1a1a1a] last:border-0 relative"
+                className="group pb-10 border-b border-border/30 last:border-0 relative"
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex items-center gap-3">
-                    <p className="text-xs uppercase tracking-[0.3em] text-white">
+                    <p className="text-xs uppercase tracking-[0.3em] text-foreground">
                       {comment.name}
                     </p>
                     {comment.is_private && (
-                      <span className="text-[8px] uppercase tracking-[0.3em] text-black bg-[#444] px-2 py-0.5 rounded-sm">
+                      <span className="text-[8px] uppercase tracking-[0.3em] text-background bg-muted px-2 py-0.5 rounded-sm">
                         Private
                       </span>
                     )}
                   </div>
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-[#444]">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
                     {timeAgo(comment.created_at)}
                   </p>
                 </div>
-                <p className={`text-sm font-light leading-relaxed ${comment.is_private ? 'text-[#aaa]' : 'text-[#888]'}`}>
+                <p className={`text-sm font-light leading-relaxed ${comment.is_private ? 'text-muted-foreground' : 'text-muted-foreground'}`}>
                   {comment.message}
                 </p>
                 {isAdmin && (
                   <button
                     onClick={() => confirmDelete(comment.id)}
-                    className="absolute right-0 bottom-4 text-[10px] uppercase tracking-[0.3em] text-[#444] hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
+                    className="absolute right-0 bottom-4 text-[10px] uppercase tracking-[0.3em] text-muted-foreground hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
                   >
                     Delete
                   </button>
@@ -372,7 +372,7 @@ export default function CommentSection() {
                 setShowPinModal(false);
                 setPinInput('');
               }}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-background/60 backdrop-blur-md"
             />
             
             <motion.div
@@ -380,20 +380,20 @@ export default function CommentSection() {
               animate={pinError ? { x: [-10, 10, -10, 10, 0] } : { scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ duration: pinError ? 0.4 : 0.6, ease: [0.25, 1, 0.5, 1] }}
-              className="relative w-full max-w-md bg-[#0a0a0a] border border-[#222] p-12 text-center"
+              className="relative w-full max-w-md bg-muted border border-border p-12 text-center"
             >
               <button 
                 onClick={() => {
                   setShowPinModal(false);
                   setPinInput('');
                 }}
-                className="absolute top-6 right-6 text-[10px] uppercase tracking-[0.4em] text-[#666] hover:text-white transition-colors"
+                className="absolute top-6 right-6 text-[10px] uppercase tracking-[0.4em] text-muted-foreground hover:text-foreground transition-colors"
               >
                 Close
               </button>
 
-              <h3 className="text-2xl font-serif text-white uppercase tracking-widest mb-2">Access</h3>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-[#666] mb-8">Studio Archives</p>
+              <h3 className="text-2xl font-serif text-foreground uppercase tracking-widest mb-2">Access</h3>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-8">Studio Archives</p>
 
               <form onSubmit={handlePinSubmit} className="space-y-8">
                 <input
@@ -403,11 +403,11 @@ export default function CommentSection() {
                   autoFocus
                   maxLength={4}
                   placeholder="----"
-                  className={`w-full bg-transparent border-b ${pinError ? 'border-red-500 text-red-500' : 'border-[#333] focus:border-white text-white'} outline-none text-center text-2xl tracking-[1em] py-4 placeholder:text-[#333] transition-colors duration-300`}
+                  className={`w-full bg-transparent border-b ${pinError ? 'border-red-500 text-red-500' : 'border-border focus:border-foreground text-foreground'} outline-none text-center text-2xl tracking-[1em] py-4 placeholder:text-muted-foreground/30 transition-colors duration-300`}
                 />
                 <button
                   type="submit"
-                  className="w-full text-xs uppercase tracking-[0.3em] text-white border border-[#333] py-4 hover:bg-white hover:text-black transition-colors duration-500"
+                  className="w-full text-xs uppercase tracking-[0.3em] text-foreground border border-border py-4 hover:bg-foreground hover:text-background transition-colors duration-500"
                 >
                   Unlock
                 </button>
@@ -426,7 +426,7 @@ export default function CommentSection() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => !isDeleting && setCommentToDelete(null)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              className="absolute inset-0 bg-background/60 backdrop-blur-md"
             />
             
             <motion.div
@@ -434,10 +434,10 @@ export default function CommentSection() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1] }}
-              className="relative w-full max-w-sm bg-[#0a0a0a] border border-red-900/30 p-12 text-center"
+              className="relative w-full max-w-sm bg-muted border border-red-900/50 dark:border-red-900/30 p-12 text-center"
             >
-              <h3 className="text-xl font-serif text-white uppercase tracking-widest mb-4">Confirm Deletion</h3>
-              <p className="text-xs text-[#888] font-light mb-10 leading-relaxed">
+              <h3 className="text-xl font-serif text-foreground uppercase tracking-widest mb-4">Confirm Deletion</h3>
+              <p className="text-xs text-muted-foreground font-light mb-10 leading-relaxed">
                 Are you sure you want to permanently erase this entry from the archive?
               </p>
 
@@ -445,14 +445,14 @@ export default function CommentSection() {
                 <button
                   onClick={() => setCommentToDelete(null)}
                   disabled={isDeleting}
-                  className="w-full text-xs uppercase tracking-[0.3em] text-[#888] hover:text-white border border-[#333] hover:border-[#666] py-3 transition-colors duration-500 disabled:opacity-50"
+                  className="w-full text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground border border-border hover:border-foreground/50 py-3 transition-colors duration-500 disabled:opacity-50"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={executeDelete}
                   disabled={isDeleting}
-                  className="w-full text-xs uppercase tracking-[0.3em] text-red-500 border border-red-900/30 hover:bg-red-500 hover:text-white py-3 transition-colors duration-500 disabled:opacity-50"
+                  className="w-full text-xs uppercase tracking-[0.3em] text-red-500 border border-red-900/50 dark:border-red-900/30 hover:bg-red-500 hover:text-foreground py-3 transition-colors duration-500 disabled:opacity-50"
                 >
                   {isDeleting ? 'Deleting' : 'Erase'}
                 </button>

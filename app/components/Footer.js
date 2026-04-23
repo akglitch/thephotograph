@@ -62,7 +62,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-white">
+    <footer className="bg-gradient-to-br from-gray-900 to-black text-foreground">
       {/* Main Footer Content */}
       <div className="max-w-8xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-6 gap-12">
@@ -76,21 +76,21 @@ export default function Footer() {
           >
             <Link href="/" className="inline-block mb-6">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
-                  <CameraIcon className="h-5 w-5 text-white" />
+                <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-foreground/20">
+                  <CameraIcon className="h-5 w-5 text-foreground" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-2xl font-light text-white tracking-tight">
+                  <span className="text-2xl font-light text-foreground tracking-tight">
                     Kaytee
                   </span>
-                  <span className="text-xs tracking-widest uppercase text-white/60">
+                  <span className="text-xs tracking-widest uppercase text-foreground/60">
                     Photography
                   </span>
                 </div>
               </div>
             </Link>
 
-            <p className="text-white/70 leading-relaxed mb-6 max-w-md">
+            <p className="text-foreground/70 leading-relaxed mb-6 max-w-md">
               Capturing life's most precious moments with artistic vision and technical excellence. 
               Creating timeless imagery that tells your unique story.
             </p>
@@ -104,9 +104,9 @@ export default function Footer() {
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center gap-3 text-white/70 hover:text-white transition-colors duration-200 group"
+                  className="flex items-center gap-3 text-foreground/70 hover:text-foreground transition-colors duration-200 group"
                 >
-                  <item.icon className="h-4 w-4 text-white/60 group-hover:text-white transition-colors duration-200" />
+                  <item.icon className="h-4 w-4 text-foreground/60 group-hover:text-foreground transition-colors duration-200" />
                   <span className="text-sm">{item.text}</span>
                 </motion.a>
               ))}
@@ -122,7 +122,7 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: sectionIndex * 0.1 + 0.2 }}
               className="xl:col-span-1"
             >
-              <h3 className="font-semibold text-white mb-6 text-lg">
+              <h3 className="font-semibold text-foreground mb-6 text-lg">
                 {section.title}
               </h3>
               <ul className="space-y-3">
@@ -135,9 +135,9 @@ export default function Footer() {
                   >
                     <Link
                       href={link.href}
-                      className="text-white/70 hover:text-white transition-colors duration-200 text-sm group flex items-center gap-2"
+                      className="text-foreground/70 hover:text-foreground transition-colors duration-200 text-sm group flex items-center gap-2"
                     >
-                      <div className="w-1 h-1 bg-white/30 rounded-full group-hover:bg-white transition-colors duration-200"></div>
+                      <div className="w-1 h-1 bg-foreground/30 rounded-full group-hover:bg-foreground transition-colors duration-200"></div>
                       {link.name}
                     </Link>
                   </motion.li>
@@ -153,10 +153,10 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="xl:col-span-2"
           >
-            <h3 className="font-semibold text-white mb-6 text-lg">
+            <h3 className="font-semibold text-foreground mb-6 text-lg">
               Stay Inspired
             </h3>
-            <p className="text-white/70 text-sm mb-4 leading-relaxed">
+            <p className="text-foreground/70 text-sm mb-4 leading-relaxed">
               Subscribe to receive exclusive photography tips, behind-the-scenes content, 
               and special offers delivered to your inbox.
             </p>
@@ -166,18 +166,18 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-all duration-200 text-white placeholder-white/40 text-sm"
+                  className="flex-1 px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-foreground/20 transition-all duration-200 text-foreground placeholder-white/40 text-sm"
                 />
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold text-sm hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
+                  className="px-6 py-3 bg-foreground text-gray-900 rounded-xl font-semibold text-sm hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
                 >
                   Subscribe
                 </motion.button>
               </div>
-              <p className="text-white/40 text-xs">
+              <p className="text-foreground/40 text-xs">
                 No spam, unsubscribe at any time.
               </p>
             </form>
@@ -186,7 +186,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-foreground/10">
         <div className="max-w-8xl mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
@@ -194,7 +194,7 @@ export default function Footer() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-white/50 text-sm"
+              className="text-foreground/50 text-sm"
             >
               © {currentYear} Kaytee Photography. All rights reserved.
             </motion.div>
@@ -206,13 +206,13 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="flex items-center gap-6 text-sm"
             >
-              <Link href="/privacy" className="text-white/50 hover:text-white transition-colors duration-200">
+              <Link href="/privacy" className="text-foreground/50 hover:text-foreground transition-colors duration-200">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-white/50 hover:text-white transition-colors duration-200">
+              <Link href="/terms" className="text-foreground/50 hover:text-foreground transition-colors duration-200">
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-white/50 hover:text-white transition-colors duration-200">
+              <Link href="/cookies" className="text-foreground/50 hover:text-foreground transition-colors duration-200">
                 Cookie Policy
               </Link>
             </motion.div>
@@ -222,11 +222,11 @@ export default function Footer() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-white/40 text-sm flex items-center gap-2"
+              className="text-foreground/40 text-sm flex items-center gap-2"
             >
               <span>Captured with</span>
               <div className="w-4 h-4 bg-red-500 rounded-full relative">
-                <div className="absolute inset-1 bg-white rounded-full"></div>
+                <div className="absolute inset-1 bg-foreground rounded-full"></div>
               </div>
               <span>in New York</span>
             </motion.div>
