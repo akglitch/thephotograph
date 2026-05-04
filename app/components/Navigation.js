@@ -44,10 +44,10 @@ export default function Navigation() {
                   
                   <div className="flex flex-col">
                     <span className="text-2xl font-light text-foreground tracking-tight">
-                      Kaytee
+                      The Archive
                     </span>
                     <span className="text-xs tracking-widest uppercase text-foreground/60">
-                      Photography
+                      Studio
                     </span>
                   </div>
                 </div>
@@ -150,8 +150,8 @@ export default function Navigation() {
                     <div className="w-4 h-4 border-2 border-foreground rounded-full"></div>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-xl font-light text-foreground">Kaytee</span>
-                    <span className="text-xs tracking-widest uppercase text-muted-foreground">Photography</span>
+                    <span className="text-xl font-light text-foreground">The Archive</span>
+                    <span className="text-xs tracking-widest uppercase text-muted-foreground">Studio</span>
                   </div>
                 </div>
                 <button

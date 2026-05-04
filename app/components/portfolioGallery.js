@@ -14,6 +14,9 @@ export default function PortfolioGallery() {
   const [isLoading, setIsLoading] = useState(true);
   const [showBio, setShowBio] = useState(false);
   
+  // Reverse the images so the newest (last in data) appear first
+  const displayImages = [...galleryImages].reverse();
+  
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -40,14 +43,14 @@ export default function PortfolioGallery() {
     id: cat.id,
     name: cat.label,
     count: cat.id === 'all' 
-      ? galleryImages.length 
-      : galleryImages.filter(img => img.category === cat.id).length
+      ? displayImages.length 
+      : displayImages.filter(img => img.category === cat.id).length
   }));
 
   const filteredImages =
     activeCategory === 'all'
-      ? galleryImages
-      : galleryImages.filter((img) => img.category === activeCategory);
+      ? displayImages
+      : displayImages.filter((img) => img.category === activeCategory);
 
   const handleImageLoad = (imageId) => {
     setLoadedImages((prev) => new Set(prev).add(imageId));
@@ -76,9 +79,9 @@ export default function PortfolioGallery() {
   }, [selectedImage]);
 
   const navigateLightbox = (direction) => {
-    const currentIndex = galleryImages.findIndex((img) => img.id === selectedImage.id);
-    const nextIndex = (currentIndex + direction + galleryImages.length) % galleryImages.length;
-    setSelectedImage(galleryImages[nextIndex]);
+    const currentIndex = displayImages.findIndex((img) => img.id === selectedImage.id);
+    const nextIndex = (currentIndex + direction + displayImages.length) % displayImages.length;
+    setSelectedImage(displayImages[nextIndex]);
   };
 
   return (
@@ -110,7 +113,7 @@ export default function PortfolioGallery() {
                 transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
                 className="text-xs uppercase tracking-[0.6em] text-muted-foreground"
               >
-                Kaytee
+                Kwaku Ntiri
               </motion.p>
             </div>
 
@@ -202,7 +205,7 @@ export default function PortfolioGallery() {
                   {/* Artist Tag - Vertical Signature */}
                   <div className="absolute left-3 top-1/2 -translate-y-1/2 z-20 pointer-events-none origin-left -rotate-90">
                     <p className="text-[9px] uppercase tracking-[0.4em] text-foreground/30 group-hover:text-foreground/80 transition-all duration-700 whitespace-nowrap">
-                      Kaytee &copy; {new Date().getFullYear()}
+                      Kwaku Ntiri &copy; {new Date().getFullYear()}
                     </p>
                   </div>
 
@@ -215,6 +218,8 @@ export default function PortfolioGallery() {
                     className="w-full h-auto object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.03] grayscale-[30%] group-hover:grayscale-0"
                     onLoad={() => handleImageLoad(image.id)}
                     priority={index < 4 || image.src === '/img4.jpg' || image.src === '/20251005_125020.jpg'}
+                    onContextMenu={(e) => e.preventDefault()}
+                    draggable={false}
                   />
                 </div>
 
@@ -257,10 +262,11 @@ export default function PortfolioGallery() {
               transition={{ duration: 0.5 }}
               className="fixed inset-0 z-50 flex items-center justify-center bg-[#050505] px-4 py-8"
               onClick={closeLightbox}
+              onContextMenu={(e) => e.preventDefault()}
             >
               {/* Top Minimal Header */}
               <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-20">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{galleryImages.findIndex(img => img.id === selectedImage.id) + 1} / {galleryImages.length}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{displayImages.findIndex(img => img.id === selectedImage.id) + 1} / {displayImages.length}</p>
                 <button
                   onClick={closeLightbox}
                   className="text-xs uppercase tracking-[0.2em] text-white hover:text-white/60 transition-colors"
@@ -289,7 +295,7 @@ export default function PortfolioGallery() {
                 {/* Lightbox Artist Tag - Subtle Branding */}
                 <div className="absolute -left-12 top-1/2 -translate-y-1/2 z-20 pointer-events-none origin-center -rotate-90 hidden lg:block">
                   <p className="text-[10px] uppercase tracking-[0.8em] text-foreground/10 whitespace-nowrap">
-                    Authenticated Original — Kaytee
+                    Authenticated Original — Kwaku Ntiri
                   </p>
                 </div>
                 <Image
@@ -298,6 +304,8 @@ export default function PortfolioGallery() {
                   fill
                   className="object-contain"
                   priority
+                  onContextMenu={(e) => e.preventDefault()}
+                  draggable={false}
                 />
               </motion.div>
 
@@ -368,7 +376,7 @@ export default function PortfolioGallery() {
                       that define our shared human experience.
                     </p>
                     <p>
-                      Based in the intersection of street realism and editorial grace, Kaytee&rsquo;s work seeks to find 
+                      Based in the intersection of street realism and editorial grace, Kwaku Ntiri&rsquo;s work seeks to find 
                       geometry in chaos and stillness in the rush. We believe that photography is not just 
                       about seeing, but about feeling the weight of the air within the frame.
                     </p>
@@ -393,7 +401,7 @@ export default function PortfolioGallery() {
                   <div className="flex justify-between items-end">
                     <div>
                       <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4">Contact Studio</p>
-                      <p className="text-xl font-serif text-foreground tracking-widest">KAYTEE@ARCHIVE.COM</p>
+                      <p className="text-xl font-serif text-foreground tracking-widest">KWAKU@ARCHIVE.COM</p>
                     </div>
                     <div className="text-right">
                        <p className="text-[9px] uppercase tracking-[0.4em] text-muted-foreground">&copy; 2026 THE ARCHIVE</p>

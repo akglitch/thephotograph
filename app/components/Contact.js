@@ -44,7 +44,7 @@ export default function Contact() {
     {
       icon: EnvelopeIcon,
       label: 'Email',
-      value: 'hello@kaytee.com',
+      value: 'hello@thearchive.com',
       description: 'Quick response guaranteed'
     },
     {

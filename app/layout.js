@@ -10,8 +10,8 @@ const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfa
 const signature = Mr_De_Haviland({ weight: '400', subsets: ["latin"], variable: "--font-signature" });
 
 export const metadata = {
-  title: 'Kaytee Photography Portfolio',
-  description: 'A refined portfolio showcasing portraits, landscapes, and weddings with elegant visual storytelling.',
+  title: 'The Archive | Kwaku Ntiri',
+  description: 'A refined photography archive by Kwaku Ntiri, exploring the intersection of street realism and editorial grace.',
 };
 
 export default function RootLayout({ children }) {

@@ -154,26 +154,26 @@ export const galleryImages = [
   {
     id: 20,
     src: "/img1.jpg",
-    alt: "Minimalist composition of light and shadow",
-    category: "archive",
-    title: "Spectral Geometry",
-    description: "Finding logic in the abstract, where light carves meaning out of the mundane."
+    alt: "Woman with orange braided hair covering her smile",
+    category: "portrait",
+    title: "Hidden Smile",
+    description: "A candid moment of joy, partially obscured but deeply felt."
   },
   {
     id: 21,
     src: "/img2.jpg",
-    alt: "Dynamic city street view",
-    category: "street",
-    title: "Obsidian Arteries",
-    description: "The dark, flowing paths of the metropolis, pulsing with the neon blood of the night."
+    alt: "Black and white portrait of a woman looking away",
+    category: "portrait",
+    title: "Quiet Reflection",
+    description: "A moment of stillness and contemplation captured in monochrome."
   },
   {
     id: 22,
     src: "/img4.jpg",
-    alt: "Elegant and professional portrait",
-    category: "portrait",
-    title: "The Sovereign Gaze",
-    description: "Authority and empathy captured in a single, unwavering expression."
+    alt: "Person on a horse at the beach",
+    category: "archive",
+    title: "Coastal Rider",
+    description: "A lone rider against the rhythm of the waves, finding harmony between land and sea."
   },
   {
     id: 23,
@@ -302,8 +302,111 @@ export const galleryImages = [
     category: "archive",
     title: "Woven Equilibrium",
     description: "Where the rhythm of the loom meets the stillness of the wood, a sanctuary of structural grace and earthy repose."
+  },
+  {
+    id: 39,
+    src: "/20260109_154654.jpg",
+    alt: "A young girl standing at the edge of the ocean",
+    category: "street",
+    title: "Ocean Whispers",
+    description: "A youthful wonder captured against the rhythmic pulse of the Atlantic."
+  },
+  {
+    id: 40,
+    src: "/20260111_171031.jpg",
+    alt: "Airplane silhouetted against a cloudy sky",
+    category: "archive",
+    title: "Ascension",
+    description: "A mechanical silhouette cutting through the vast, monochromatic expanse of the sky."
+  },
+  {
+    id: 41,
+    src: "/20260417_144248.jpg",
+    alt: "Airplane framed between two rooflines",
+    category: "archive",
+    title: "Framed Flight",
+    description: "The geometry of man-made structures framing the mechanical marvel of flight."
+  },
+  {
+    id: 42,
+    src: "/20260424_140053.jpg",
+    alt: "Black and white portrait of a person wearing a cap, leaning near a quote poster",
+    category: "portrait",
+    title: "The Weight of Words",
+    description: "A candid moment of reflection, juxtaposed against the inspiring words of the environment."
+  },
+  {
+    id: 43,
+    src: "/20260424_141216.jpg",
+    alt: "Person holding a camera to their face, taking a picture",
+    category: "portrait",
+    title: "The Observer",
+    description: "Turning the lens on the creator, capturing the intensity of focus behind the camera."
+  },
+  {
+    id: 44,
+    src: "/20260424_150630.jpg",
+    alt: "Close-up of hands holding a Canon camera",
+    category: "portrait",
+    title: "The Artist's Hands",
+    description: "A tactile connection between the artist and the instrument of their vision."
+  },
+  {
+    id: 45,
+    src: "/20260424_162019.jpg",
+    alt: "Person leaning against a wall with ALX logo",
+    category: "archive",
+    title: "The Space Between",
+    description: "Urban identity reflected in the clean lines and bold typography of the modern workspace."
+  },
+  {
+    id: 46,
+    src: "/20260424_164303.jpg",
+    alt: "Person in a leather cap standing in a hallway",
+    category: "archive",
+    title: "Hallway Chronicles",
+    description: "A study in posture and presence, where the mundane corridor becomes a stage for personal expression."
+  },
+  {
+    id: 47,
+    src: "/20240702_171344 (1) (1).jpg",
+    alt: "White Corvette parked at a car dealership with national flags",
+    category: "street",
+    title: "Static Velocity",
+    description: "A machine built for speed, resting momentarily against the colorful backdrop of a bustling lot."
+  },
+  {
+    id: 48,
+    src: "/20241122_141345 (1).jpg",
+    alt: "Modern tall building with yellow and white blocks",
+    category: "archive",
+    title: "Tetris Sky",
+    description: "Modern architecture stacking against the blue expanse, a monument to structured ambition."
+  },
+  {
+    id: 49,
+    src: "/20250206_130148 (2).jpg",
+    alt: "Grand historic church with twin towers and stained glass",
+    category: "archive",
+    title: "Twin Spires",
+    description: "Standing resolute against the fading day, a sanctuary of stone and colored light."
+  },
+  {
+    id: 50,
+    src: "/20250207_115052 (1).jpg",
+    alt: "Colorful striped ceiling in an airport with a departures sign",
+    category: "street",
+    title: "Vibrant Departures",
+    description: "A colorful canopy guiding travelers through the transient space of goodbyes and new beginnings."
+  },
+  {
+    id: 51,
+    src: "/e969669b4867e795f05d973f82674841_0.jpeg",
+    alt: "Outdoor restaurant seating area with gravel and modern furniture",
+    category: "street",
+    title: "The Open Oasis",
+    description: "A structured haven under the open sky, inviting a moment of pause amidst the gravel and green."
   }
-
 ];
 
 export const categories = [

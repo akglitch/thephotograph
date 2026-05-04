@@ -35,10 +35,10 @@ export default function Footer() {
     {
       title: 'Connect',
       links: [
-        { name: 'Instagram', href: 'https://instagram.com/kaytee' },
-        { name: 'Facebook', href: 'https://facebook.com/kaytee' },
-        { name: 'Pinterest', href: 'https://pinterest.com/kaytee' },
-        { name: '500px', href: 'https://500px.com/kaytee' }
+        { name: 'Instagram', href: 'https://instagram.com/thearchive' },
+        { name: 'Facebook', href: 'https://facebook.com/thearchive' },
+        { name: 'Pinterest', href: 'https://pinterest.com/thearchive' },
+        { name: '500px', href: 'https://500px.com/thearchive' }
       ]
     }
   ];
@@ -46,8 +46,8 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: EnvelopeIcon,
-      text: 'hello@kaytee.com',
-      href: 'mailto:hello@kaytee.com'
+      text: 'hello@thearchive.com',
+      href: 'mailto:hello@thearchive.com'
     },
     {
       icon: PhoneIcon,
@@ -81,10 +81,10 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-2xl font-light text-foreground tracking-tight">
-                    Kaytee
+                    The Archive
                   </span>
                   <span className="text-xs tracking-widest uppercase text-foreground/60">
-                    Photography
+                    Studio
                   </span>
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="text-foreground/50 text-sm"
             >
-              © {currentYear} Kaytee Photography. All rights reserved.
+              © {currentYear} The Archive. All rights reserved.
             </motion.div>
 
             {/* Legal Links */}

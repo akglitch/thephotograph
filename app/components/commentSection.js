@@ -249,7 +249,7 @@ export default function CommentSection() {
                   className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground cursor-pointer select-none"
                   onClick={() => setIsPrivate(!isPrivate)}
                 >
-                  Keep this private (Only Kaytee will see)
+                  Keep this private (Only Kwaku Ntiri will see)
                 </label>
               </div>
 

@@ -110,7 +110,7 @@ export default function About() {
               <h1 className="text-6xl md:text-8xl font-light text-white mb-8 tracking-tight">
                 <span className="block">Hello, I'm</span>
                 <span className="block italic font-serif text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-300">
-                  Kaytee
+                  Kwaku Ntiri
                 </span>
               </h1>
 
