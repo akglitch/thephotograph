@@ -4,6 +4,7 @@ import BackToTop from './components/backToTop';
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from './components/ThemeProvider';
 import ThemeToggle from './components/ThemeToggle';
+import CustomCursor from './components/customCursor';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${playfair.variable} ${signature.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-foreground/20 selection:text-foreground transition-colors duration-1000`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem themes={['light', 'dark', 'midnight']}>
           <main>{children}</main>
+          <CustomCursor />
           <BackToTop />
           <ThemeToggle />
           <Analytics />

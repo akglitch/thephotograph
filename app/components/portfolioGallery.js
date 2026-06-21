@@ -86,7 +86,6 @@ export default function PortfolioGallery() {
 
   return (
     <>
-      <CustomCursor />
       <AnimatePresence mode="wait">
         {isLoading && (
           <motion.div

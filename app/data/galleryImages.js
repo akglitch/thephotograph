@@ -413,5 +413,6 @@ export const categories = [
   { id: 'all', label: 'All Works' },
   { id: 'portrait', label: 'Portrait' },
   { id: 'street', label: 'Street' },
-  { id: 'archive', label: 'Archive' }
+  { id: 'archive', label: 'Archive' },
+  { id: 'nubuke', label: 'Nubuke Foundation Art Gallery' }
 ];
