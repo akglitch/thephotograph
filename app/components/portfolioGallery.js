@@ -246,6 +246,13 @@ export default function PortfolioGallery() {
           >
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">Inquiries</p>
             <h2 className="text-4xl md:text-6xl font-serif text-foreground uppercase tracking-widest font-light mb-12">Private Commissions</h2>
+            
+            <div className="flex flex-col items-center justify-center gap-3 mb-12 text-sm text-muted-foreground tracking-widest uppercase">
+              <p><a href="mailto:ntirianinakwa@gmail.com" className="hover:text-foreground transition-colors">ntirianinakwa@gmail.com</a></p>
+              <p><a href="https://wa.me/233209742331" className="hover:text-foreground transition-colors">+233 209742331</a></p>
+              <p>Accra East Legon</p>
+            </div>
+
             <button className="text-xs uppercase tracking-[0.2em] text-foreground border border-border px-12 py-5 hover:bg-foreground hover:text-background transition-colors duration-500">
               Contact Studio
             </button>
@@ -397,14 +404,22 @@ export default function PortfolioGallery() {
                   </div>
                 </section>
 
-                <section className="pt-12 border-t border-border">
+                <section className="pt-12 border-t border-border pb-12">
                   <div className="flex justify-between items-end">
-                    <div>
+                    <div className="space-y-4">
                       <p className="text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4">Contact Studio</p>
-                      <p className="text-xl font-serif text-foreground tracking-widest">KWAKU@ARCHIVE.COM</p>
+                      <p className="text-sm md:text-base font-serif text-foreground tracking-widest uppercase">
+                        <a href="mailto:ntirianinakwa@gmail.com" className="hover:text-muted-foreground transition-colors">ntirianinakwa@gmail.com</a>
+                      </p>
+                      <p className="text-sm md:text-base font-serif text-foreground tracking-widest uppercase">
+                        <a href="https://wa.me/233209742331" className="hover:text-muted-foreground transition-colors">+233 209742331</a>
+                      </p>
+                      <p className="text-sm md:text-base font-serif text-foreground tracking-widest uppercase">
+                        Accra East Legon
+                      </p>
                     </div>
                     <div className="text-right">
-                       <p className="text-[9px] uppercase tracking-[0.4em] text-muted-foreground">&copy; 2026 THE ARCHIVE</p>
+                       <p className="text-[9px] uppercase tracking-[0.4em] text-muted-foreground">&copy; {new Date().getFullYear()} THE ARCHIVE</p>
                     </div>
                   </div>
                 </section>

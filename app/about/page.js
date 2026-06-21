@@ -11,7 +11,9 @@ import {
   ClockIcon,
   TrophyIcon,
   MapPinIcon,
-  UserGroupIcon
+  UserGroupIcon,
+  EnvelopeIcon,
+  PhoneIcon
 } from '@heroicons/react/24/outline';
 
 export default function About() {
@@ -61,7 +63,7 @@ export default function About() {
     {
       year: '2018',
       title: 'First Studio',
-      description: 'Opened first professional studio in New York City'
+      description: 'Opened first professional studio in Accra'
     },
     {
       year: '2020',
@@ -129,15 +131,27 @@ export default function About() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex items-center gap-6 text-white/60"
+                className="flex flex-wrap items-center gap-6 text-white/60"
               >
                 <div className="flex items-center gap-2">
                   <MapPinIcon className="h-5 w-5" />
-                  <span>Based in New York</span>
+                  <span>Based in Accra East Legon</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CameraIcon className="h-5 w-5" />
                   <span>Available Worldwide</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <EnvelopeIcon className="h-5 w-5" />
+                  <a href="mailto:ntirianinakwa@gmail.com" className="hover:text-white transition-colors">
+                    ntirianinakwa@gmail.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <PhoneIcon className="h-5 w-5" />
+                  <a href="https://wa.me/233209742331" className="hover:text-white transition-colors">
+                    +233 209742331
+                  </a>
                 </div>
               </motion.div>
             </motion.div>

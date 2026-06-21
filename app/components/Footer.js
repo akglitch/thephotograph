@@ -46,17 +46,17 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: EnvelopeIcon,
-      text: 'hello@thearchive.com',
-      href: 'mailto:hello@thearchive.com'
+      text: 'ntirianinakwa@gmail.com',
+      href: 'mailto:ntirianinakwa@gmail.com'
     },
     {
       icon: PhoneIcon,
-      text: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      text: '+233 209742331',
+      href: 'https://wa.me/233209742331'
     },
     {
       icon: MapPinIcon,
-      text: 'New York, NY',
+      text: 'Accra East Legon',
       href: '#'
     }
   ];
@@ -228,7 +228,7 @@ export default function Footer() {
               <div className="w-4 h-4 bg-red-500 rounded-full relative">
                 <div className="absolute inset-1 bg-foreground rounded-full"></div>
               </div>
-              <span>in New York</span>
+              <span>in Accra East Legon</span>
             </motion.div>
           </div>
         </div>
