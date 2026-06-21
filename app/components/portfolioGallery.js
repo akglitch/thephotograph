@@ -3,12 +3,19 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { galleryImages, categories as categoryNames } from '../data/galleryImages';
 import CustomCursor from './customCursor';
 import CommentSection from './commentSection';
 
-export default function PortfolioGallery() {
-  const [activeCategory, setActiveCategory] = useState('all');
+export default function PortfolioGallery({ 
+  initialCategory = 'all', 
+  hideFilters = false,
+  title = 'The Archive',
+  subtitle = 'Curated Collection'
+}) {
+  const router = useRouter();
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [selectedImage, setSelectedImage] = useState(null);
   const [loadedImages, setLoadedImages] = useState(new Set());
   const [isLoading, setIsLoading] = useState(true);
@@ -141,13 +148,13 @@ export default function PortfolioGallery() {
                 initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
                 className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6"
               >
-                Curated Collection
+                {subtitle}
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}
                 className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground tracking-widest leading-none font-light uppercase"
               >
-                The Archive
+                {title}
               </motion.h1>
             </div>
 
@@ -161,25 +168,44 @@ export default function PortfolioGallery() {
                 Studio / About
               </motion.button>
 
-              <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
-                className="flex flex-wrap gap-8"
-              >
-              {categories.map((category) => (
-                <button
-                  key={category.id}
-                  type="button"
-                  onClick={() => setActiveCategory(category.id)}
-                  className={`text-xs uppercase tracking-[0.2em] pb-1 transition-all duration-500 hover:text-foreground relative ${activeCategory === category.id
-                      ? 'text-foreground'
-                      : 'text-muted-foreground'
-                    }`}
+              {!hideFilters && (
+                <motion.div
+                  initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}
+                  className="flex flex-wrap gap-8"
                 >
-                  {category.name}
-                  <span className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-500 ${activeCategory === category.id ? 'w-full' : 'w-0'}`}></span>
-                </button>
-              ))}
-            </motion.div>
+                {categories.map((category) => {
+                  if (category.id === 'nubuke') {
+                    return (
+                      <a
+                        key={category.id}
+                        href="/nubuke"
+                        className={`text-xs uppercase tracking-[0.2em] pb-1 transition-all duration-500 hover:text-foreground relative block ${activeCategory === category.id
+                            ? 'text-foreground'
+                            : 'text-muted-foreground'
+                          }`}
+                      >
+                        {category.name}
+                        <span className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-500 ${activeCategory === category.id ? 'w-full' : 'w-0'}`}></span>
+                      </a>
+                    );
+                  }
+                  return (
+                    <button
+                      key={category.id}
+                      type="button"
+                      onClick={() => setActiveCategory(category.id)}
+                      className={`text-xs uppercase tracking-[0.2em] pb-1 transition-all duration-500 hover:text-foreground relative ${activeCategory === category.id
+                          ? 'text-foreground'
+                          : 'text-muted-foreground'
+                        }`}
+                    >
+                      {category.name}
+                      <span className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-500 ${activeCategory === category.id ? 'w-full' : 'w-0'}`}></span>
+                    </button>
+                  );
+                })}
+              </motion.div>
+              )}
           </div>
         </div>
 

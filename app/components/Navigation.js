@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 const navigation = [
   { name: 'Home', href: '/', description: 'Begin your journey' },
   { name: 'Portfolio', href: '/gallery', description: 'View our work' },
+  { name: 'Nubuke', href: '/nubuke', description: 'Nubuke Foundation' },
   { name: 'About', href: '/about', description: 'Our story' },
   { name: 'Services', href: '/services', description: 'What we offer' },
   { name: 'Contact', href: '/contact', description: 'Get in touch' },
