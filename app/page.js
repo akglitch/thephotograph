@@ -15,14 +15,12 @@ export default function LandingPage() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/img4.jpg"
+          src="/20260620_154114 (1).jpg"
           alt="The Archive Background"
           fill
           priority
-          className="object-cover object-center opacity-60 grayscale-[40%]"
+          className="object-cover object-center"
         />
-        {/* Dark gradient overlays for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80 z-10" />
       </motion.div>
 
       {/* Main Content Container */}

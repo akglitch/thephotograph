@@ -406,7 +406,37 @@ export const galleryImages = [
     category: "street",
     title: "The Open Oasis",
     description: "A structured haven under the open sky, inviting a moment of pause amidst the gravel and green."
-  }
+  },
+  { id: 52, src: "/20260620_130035.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 1", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 53, src: "/20260620_130051.jpeg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 2", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 54, src: "/20260620_130251.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 3", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 55, src: "/20260620_130257.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 4", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 56, src: "/20260620_131544.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 5", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 57, src: "/20260620_132446.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 6", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 58, src: "/20260620_133513.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 7", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 59, src: "/20260620_133533.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 8", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 60, src: "/20260620_134028.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 9", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 61, src: "/20260620_134031.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 10", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 62, src: "/20260620_134134.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 11", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 63, src: "/20260620_134445.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 12", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 64, src: "/20260620_134929.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 13", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 65, src: "/20260620_135108.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 14", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 66, src: "/20260620_135111.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 15", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 68, src: "/20260620_151515.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 17", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 69, src: "/20260620_151603.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 18", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 70, src: "/20260620_151818.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 19", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 71, src: "/20260620_152723.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 20", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 72, src: "/20260620_152929(0).jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 21", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 73, src: "/20260620_152939.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 22", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 74, src: "/20260620_153021.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 23", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 75, src: "/20260620_154114.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 24", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 76, src: "/20260620_155606.jpeg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 25", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 77, src: "/20260620_160234.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 26", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 78, src: "/20260620_160516.jpeg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 27", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 79, src: "/20260620_160525.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 28", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 80, src: "/20260620_163147.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 29", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 81, src: "/20260620_163232.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 30", description: "Exploring the intersections of art and culture at the Nubuke Foundation." },
+  { id: 82, src: "/20260620_165715.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "Nubuke Gallery 31", description: "Exploring the intersections of art and culture at the Nubuke Foundation." }
 ];
 
 export const categories = [

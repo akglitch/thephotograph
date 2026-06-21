@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} ${signature.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-foreground/20 selection:text-foreground transition-colors duration-1000`}>
+      <body suppressHydrationWarning className={`${inter.variable} ${playfair.variable} ${signature.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-foreground/20 selection:text-foreground transition-colors duration-1000`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem themes={['light', 'dark', 'midnight']}>
           <main>{children}</main>
           <CustomCursor />

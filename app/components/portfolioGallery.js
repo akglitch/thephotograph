@@ -210,7 +210,7 @@ export default function PortfolioGallery({
         </div>
 
         {/* Masonry Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 gap-y-16 space-y-16">
+          <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 gap-y-8 space-y-8">
             {filteredImages.map((image, index) => (
               <motion.article
                 key={image.id}
@@ -219,10 +219,10 @@ export default function PortfolioGallery({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8, delay: (index % 3) * 0.1 }}
-                className="group break-inside-avoid cursor-pointer overflow-hidden"
+                className="group break-inside-avoid cursor-pointer overflow-hidden mb-8"
                 onClick={() => openLightbox(image)}
               >
-                <div className="relative w-full mb-6 overflow-hidden bg-muted">
+                <div className="relative w-full overflow-hidden bg-muted">
                   {!loadedImages.has(image.id) && (
                     <div className="absolute inset-0 z-10 bg-muted animate-pulse" />
                   )}
@@ -248,15 +248,18 @@ export default function PortfolioGallery({
                   />
                 </div>
 
-                <div className="flex justify-between items-start">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-serif text-foreground uppercase tracking-wider">{image.title}</h3>
-                    <p className="text-sm text-muted-foreground font-light max-w-sm">{image.description}</p>
+                {/* Hide text block for nubuke category completely to make it 'just pictures' */}
+                {image.category !== 'nubuke' && (
+                  <div className="flex justify-between items-start mt-4">
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-serif text-foreground uppercase tracking-wider">{image.title}</h3>
+                      <p className="text-sm text-muted-foreground font-light max-w-sm">{image.description}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{image.category}</p>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{image.category}</p>
-                  </div>
-                </div>
+                )}
               </motion.article>
             ))}
           </div>
