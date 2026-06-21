@@ -248,18 +248,7 @@ export default function PortfolioGallery({
                   />
                 </div>
 
-                {/* Hide text block for nubuke category completely to make it 'just pictures' */}
-                {image.category !== 'nubuke' && (
-                  <div className="flex justify-between items-start mt-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-serif text-foreground uppercase tracking-wider">{image.title}</h3>
-                      <p className="text-sm text-muted-foreground font-light max-w-sm">{image.description}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{image.category}</p>
-                    </div>
-                  </div>
-                )}
+
               </motion.article>
             ))}
           </div>
