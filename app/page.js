@@ -15,7 +15,7 @@ export default function LandingPage() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/20260620_154114 (1).jpg"
+          src="/img4.jpg"
           alt="The Archive Background"
           fill
           priority

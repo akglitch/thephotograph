@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -20,6 +20,10 @@ export default function PortfolioGallery({
   const [loadedImages, setLoadedImages] = useState(new Set());
   const [isLoading, setIsLoading] = useState(true);
   const [showBio, setShowBio] = useState(false);
+
+  // Touch swipe tracking
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
   
   // Reverse the images so the newest (last in data) appear first
   const displayImages = [...galleryImages].reverse();
@@ -85,10 +89,31 @@ export default function PortfolioGallery({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedImage]);
 
-  const navigateLightbox = (direction) => {
-    const currentIndex = displayImages.findIndex((img) => img.id === selectedImage.id);
-    const nextIndex = (currentIndex + direction + displayImages.length) % displayImages.length;
-    setSelectedImage(displayImages[nextIndex]);
+  const navigateLightbox = useCallback((direction) => {
+    setSelectedImage((current) => {
+      if (!current) return current;
+      const currentIndex = displayImages.findIndex((img) => img.id === current.id);
+      const nextIndex = (currentIndex + direction + displayImages.length) % displayImages.length;
+      return displayImages[nextIndex];
+    });
+  }, [displayImages]);
+
+  // Touch / swipe handlers
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - touchStartY.current;
+    // Only trigger if horizontal swipe dominates and exceeds threshold
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      navigateLightbox(dx < 0 ? 1 : -1);
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
   };
 
   return (
@@ -210,7 +235,7 @@ export default function PortfolioGallery({
         </div>
 
         {/* Masonry Grid */}
-          <div className="columns-2 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 gap-y-8 space-y-8">
+          <div className="columns-1 sm:columns-3 lg:columns-4 xl:columns-5 gap-4 gap-y-8 space-y-8">
             {filteredImages.map((image, index) => (
               <motion.article
                 key={image.id}
@@ -287,6 +312,8 @@ export default function PortfolioGallery({
               className="fixed inset-0 z-50 flex items-center justify-center bg-[#050505] px-4 py-8"
               onClick={closeLightbox}
               onContextMenu={(e) => e.preventDefault()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
               {/* Top Minimal Header */}
               <div className="absolute top-0 left-0 w-full p-8 flex justify-between items-center z-20">
@@ -299,13 +326,27 @@ export default function PortfolioGallery({
                 </button>
               </div>
 
-              {/* Navigations */}
-              <div className="absolute top-1/2 left-8 -translate-y-1/2 z-20 hidden md:block">
-                <button onClick={(e) => { e.stopPropagation(); navigateLightbox(-1); }} className="text-xs uppercase tracking-[0.2em] text-white hover:text-white/60 transition-colors mix-blend-difference">Prev</button>
-              </div>
-              <div className="absolute top-1/2 right-8 -translate-y-1/2 z-20 hidden md:block">
-                <button onClick={(e) => { e.stopPropagation(); navigateLightbox(1); }} className="text-xs uppercase tracking-[0.2em] text-white hover:text-white/60 transition-colors mix-blend-difference">Next</button>
-              </div>
+              {/* Prev Arrow */}
+              <button
+                onClick={(e) => { e.stopPropagation(); navigateLightbox(-1); }}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 backdrop-blur-sm transition-all duration-300 group"
+                aria-label="Previous image"
+              >
+                <svg className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+
+              {/* Next Arrow */}
+              <button
+                onClick={(e) => { e.stopPropagation(); navigateLightbox(1); }}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 bg-white/5 hover:bg-white/15 backdrop-blur-sm transition-all duration-300 group"
+                aria-label="Next image"
+              >
+                <svg className="w-5 h-5 text-white/70 group-hover:text-white transition-colors" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </button>
 
               {/* Central Image Wrapper */}
               <motion.div

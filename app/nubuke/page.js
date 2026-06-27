@@ -5,8 +5,8 @@ export default function NubukePage() {
     <PortfolioGallery 
       initialCategory="nubuke" 
       hideFilters={true} 
-      title="Nubuke Foundation"
-      subtitle="Art Gallery Exhibition"
+      title="Nubuke"
+      subtitle="Collection 2026"
     />
   );
 }
