@@ -27,7 +27,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <div className="fixed bottom-6 left-6 z-[100] flex flex-col items-center gap-4">
+    <div className="fixed bottom-16 left-6 z-[100] flex flex-col items-center gap-4">
       <div className="relative group">
         {/* The "Wheel" indicator */}
         <div className="absolute inset-0 -m-1 rounded-full border border-border/20 scale-110" />

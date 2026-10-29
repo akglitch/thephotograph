@@ -46,6 +46,12 @@ export default function CommentSection() {
 
   async function fetchComments() {
     setIsLoading(true);
+
+    if (!supabase) {
+      setComments([]);
+      setIsLoading(false);
+      return;
+    }
     
     let query = supabase
       .from('site_comments')
@@ -69,6 +75,12 @@ export default function CommentSection() {
 
     setIsSubmitting(true);
     setError(null);
+
+    if (!supabase) {
+      setError('The guestbook is unavailable right now. Please try again later.');
+      setIsSubmitting(false);
+      return;
+    }
 
     const { error } = await supabase
       .from('site_comments')
@@ -102,7 +114,7 @@ export default function CommentSection() {
   }
 
   async function executeDelete() {
-    if (!commentToDelete) return;
+    if (!commentToDelete || !supabase) return;
     setIsDeleting(true);
 
     const { error } = await supabase

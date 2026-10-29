@@ -103,3 +103,92 @@ body {
   transition: all 1.2s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+
+.glitch-title {
+  position: relative;
+  isolation: isolate;
+  animation: glitch-flicker 5s steps(1, end) infinite;
+}
+
+.glitch-title::before,
+.glitch-title::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.glitch-title::before {
+  color: #ff3158;
+  animation: glitch-shift-a 4s infinite steps(1, end);
+}
+
+.glitch-title::after {
+  color: #00c8ff;
+  animation: glitch-shift-b 4s infinite steps(1, end);
+}
+
+@keyframes glitch-shift-a {
+  0%, 86%, 90%, 94%, 100% { opacity: 0; transform: none; clip-path: inset(0 0 0 0); }
+  87% { opacity: 0.75; transform: translate(-3px, 1px); clip-path: inset(14% 0 68% 0); }
+  88% { opacity: 0.7; transform: translate(3px, -1px); clip-path: inset(48% 0 28% 0); }
+  89% { opacity: 0.6; transform: translate(-2px, 0); clip-path: inset(76% 0 8% 0); }
+  92% { opacity: 0.7; transform: translate(2px, 0); clip-path: inset(32% 0 50% 0); }
+}
+
+@keyframes glitch-shift-b {
+  0%, 87%, 91%, 95%, 100% { opacity: 0; transform: none; clip-path: inset(0 0 0 0); }
+  88% { opacity: 0.7; transform: translate(3px, 0); clip-path: inset(62% 0 18% 0); }
+  89% { opacity: 0.65; transform: translate(-3px, 1px); clip-path: inset(20% 0 60% 0); }
+  90% { opacity: 0.6; transform: translate(2px, -1px); clip-path: inset(82% 0 4% 0); }
+  93% { opacity: 0.7; transform: translate(-2px, 0); clip-path: inset(40% 0 42% 0); }
+}
+
+@keyframes glitch-flicker {
+  0%, 86%, 91%, 100% { text-shadow: none; }
+  87%, 89% { text-shadow: 2px 0 #ff315866, -2px 0 #00c8ff66; }
+  88%, 90% { text-shadow: -1px 0 #ff315866, 1px 0 #00c8ff66; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-title,
+  .glitch-title::before,
+  .glitch-title::after {
+    animation: none;
+  }
+}
+
+
+.brand-logo-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.brand-logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 39%;
+  mix-blend-mode: multiply;
+  transform: scale(2.2) translateX(5.4%);
+}
+
+.dark .brand-logo-image,
+.midnight .brand-logo-image {
+  filter: invert(1);
+  mix-blend-mode: screen;
+}
+
+.nav-brand-logo {
+  width: 9rem;
+  height: 4.4rem;
+}
+
+.footer-brand-logo {
+  width: 10rem;
+  height: 4.85rem;
+}

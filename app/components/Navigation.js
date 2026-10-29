@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navigation = [
@@ -36,22 +37,13 @@ export default function Navigation() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Link href="/" className="group">
-                <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    <div className="w-8 h-8 bg-foreground/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-foreground/20">
-                      <div className="w-4 h-4 border-2 border-foreground rounded-full"></div>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-col">
-                    <span className="text-2xl font-light text-foreground tracking-tight">
-                      The Archive
-                    </span>
-                    <span className="text-xs tracking-widest uppercase text-foreground/60">
-                      Studio
-                    </span>
-                  </div>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="glitchStudioz"
+                  width={1819}
+                  height={2551}
+                  className="brand-logo-image nav-brand-logo"
+                />
               </Link>
             </motion.div>
 
@@ -146,15 +138,13 @@ export default function Navigation() {
             >
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200/50">
-                <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 bg-foreground/10 rounded-full flex items-center justify-center">
-                    <div className="w-4 h-4 border-2 border-foreground rounded-full"></div>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xl font-light text-foreground">The Archive</span>
-                    <span className="text-xs tracking-widest uppercase text-muted-foreground">Studio</span>
-                  </div>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="glitchStudioz"
+                  width={1819}
+                  height={2551}
+                  className="brand-logo-image nav-brand-logo"
+                />
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-2 text-muted-foreground hover:text-foreground transition-colors duration-200"

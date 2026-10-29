@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { galleryImages, categories as categoryNames } from '../data/galleryImages';
 import CustomCursor from './customCursor';
@@ -11,7 +11,7 @@ import CommentSection from './commentSection';
 export default function PortfolioGallery({ 
   initialCategory = 'all', 
   hideFilters = false,
-  title = 'The Archive',
+  title = 'glitchStudioz',
   subtitle = 'Curated Collection'
 }) {
   const router = useRouter();
@@ -28,12 +28,6 @@ export default function PortfolioGallery({
   // Reverse the images so the newest (last in data) appear first
   const displayImages = [...galleryImages].reverse();
   
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   useEffect(() => {
     if (isLoading || showBio) {
       document.body.style.overflow = 'hidden';
@@ -132,20 +126,18 @@ export default function PortfolioGallery({
                 initial={{ y: 120 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground tracking-[0.2em] leading-none font-light uppercase"
+                className="brand-logo-frame aspect-[664/323] w-[min(88vw,850px)]"
+                aria-label="glitchStudioz"
               >
-                The Archive
+                <Image
+                  src="/logo.png"
+                  alt="glitchStudioz logo"
+                  width={1819}
+                  height={2551}
+                  loading="eager"
+                  className="brand-logo-image"
+                />
               </motion.h1>
-            </div>
-            <div className="overflow-hidden mt-6">
-              <motion.p
-                initial={{ y: 40 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
-                className="text-xs uppercase tracking-[0.6em] text-muted-foreground"
-              >
-                Kwaku Ntiri
-              </motion.p>
             </div>
 
             {/* Minimal loading progress line */}
@@ -160,8 +152,6 @@ export default function PortfolioGallery({
       </AnimatePresence>
 
       <section 
-        ref={containerRef}
-        style={{ position: 'relative' }}
         className={`relative overflow-hidden bg-background text-foreground min-h-screen font-sans transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
       >
         <div className="mx-auto max-w-8xl px-6 py-32 sm:px-12 lg:px-24">
@@ -177,7 +167,7 @@ export default function PortfolioGallery({
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground tracking-widest leading-none font-light uppercase"
+                className="relative -top-2 text-5xl md:text-6xl lg:text-7xl font-signature text-foreground/90 leading-tight"
               >
                 {title}
               </motion.h1>
@@ -436,7 +426,7 @@ export default function PortfolioGallery({
                   </h2>
                   <div className="space-y-8 text-sm text-muted-foreground font-light leading-relaxed text-justify-balanced">
                     <p>
-                      The Archive is more than a collection of images; it is a clinical yet poetic exploration of existence. 
+                      glitchStudioz is more than a collection of images; it is a clinical yet poetic exploration of existence. 
                       Every frame is a dialogue between light and shadow, a silent witness to the fleeting moments 
                       that define our shared human experience.
                     </p>
@@ -477,7 +467,7 @@ export default function PortfolioGallery({
                       </p>
                     </div>
                     <div className="text-right">
-                       <p className="text-[9px] uppercase tracking-[0.4em] text-muted-foreground">&copy; {new Date().getFullYear()} THE ARCHIVE</p>
+                       <p className="text-[9px] uppercase tracking-[0.4em] text-muted-foreground">&copy; {new Date().getFullYear()} glitchStudioz</p>
                     </div>
                   </div>
                 </section>

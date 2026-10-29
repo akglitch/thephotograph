@@ -1,241 +1,74 @@
-'use client';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  EnvelopeIcon, 
-  PhoneIcon, 
-  MapPinIcon,
-  CameraIcon 
-} from '@heroicons/react/24/outline';
+
+const socialLinks = [
+  { name: 'Instagram', href: 'https://instagram.com/thearchive' },
+  { name: 'Facebook', href: 'https://facebook.com/thearchive' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@glitchstudioz' },
+];
+
+function SocialIcon({ name }) {
+  if (name === 'Instagram') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.7">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (name === 'Facebook') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="currentColor">
+        <path d="M13.4 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.6v2.1H6.8v3.2h2.9V21h3.7Z" />
+      </svg>
+    );
+  }
+
+  if (name === 'TikTok') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-5 w-5" fill="currentColor">
+        <path d="M19.6 7.2a6.6 6.6 0 0 1-4.1-1.4v8.1a6.2 6.2 0 1 1-5.4-6.1v3.3a3 3 0 1 0 2.1 2.9V2h3.3a6.6 6.6 0 0 0 4.1 4.2v1Z" />
+      </svg>
+    );
+  }
+
+}
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const footerSections = [
-    {
-      title: 'Navigation',
-      links: [
-        { name: 'Home', href: '/' },
-        { name: 'Portfolio', href: '/gallery' },
-        { name: 'About', href: '/about' },
-        { name: 'Services', href: '/services' },
-        { name: 'Contact', href: '/contact' }
-      ]
-    },
-    {
-      title: 'Services',
-      links: [
-        { name: 'Wedding Photography', href: '/services#wedding' },
-        { name: 'Portrait Sessions', href: '/services#portrait' },
-        { name: 'Commercial Photography', href: '/services#commercial' },
-        { name: 'Event Coverage', href: '/services#events' },
-        { name: 'Photo Editing', href: '/services#editing' }
-      ]
-    },
-    {
-      title: 'Connect',
-      links: [
-        { name: 'Instagram', href: 'https://instagram.com/thearchive' },
-        { name: 'Facebook', href: 'https://facebook.com/thearchive' },
-        { name: 'Pinterest', href: 'https://pinterest.com/thearchive' },
-        { name: '500px', href: 'https://500px.com/thearchive' }
-      ]
-    }
-  ];
-
-  const contactInfo = [
-    {
-      icon: EnvelopeIcon,
-      text: 'ntirianinakwa@gmail.com',
-      href: 'mailto:ntirianinakwa@gmail.com'
-    },
-    {
-      icon: PhoneIcon,
-      text: '+233 209742331',
-      href: 'https://wa.me/233209742331'
-    },
-    {
-      icon: MapPinIcon,
-      text: 'Accra East Legon',
-      href: '#'
-    }
-  ];
-
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-foreground">
-      {/* Main Footer Content */}
-      <div className="max-w-8xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-6 gap-12">
-          
-          {/* Brand Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="xl:col-span-2"
-          >
-            <Link href="/" className="inline-block mb-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-foreground/20">
-                  <CameraIcon className="h-5 w-5 text-foreground" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-2xl font-light text-foreground tracking-tight">
-                    The Archive
-                  </span>
-                  <span className="text-xs tracking-widest uppercase text-foreground/60">
-                    Studio
-                  </span>
-                </div>
-              </div>
-            </Link>
+    <footer className="border-t border-border bg-background text-foreground">
+      <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row sm:px-12 lg:px-24">
+        <Link href="/" aria-label="glitchStudioz home">
+          <Image
+            src="/logo.png"
+            alt="glitchStudioz"
+            width={1819}
+            height={2551}
+            className="brand-logo-image footer-brand-logo"
+          />
+        </Link>
 
-            <p className="text-foreground/70 leading-relaxed mb-6 max-w-md">
-              Capturing life's most precious moments with artistic vision and technical excellence. 
-              Creating timeless imagery that tells your unique story.
-            </p>
+        <p className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} glitchStudioz</p>
 
-            {/* Contact Info */}
-            <div className="space-y-3">
-              {contactInfo.map((item, index) => (
-                <motion.a
-                  key={item.text}
-                  href={item.href}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex items-center gap-3 text-foreground/70 hover:text-foreground transition-colors duration-200 group"
-                >
-                  <item.icon className="h-4 w-4 text-foreground/60 group-hover:text-foreground transition-colors duration-200" />
-                  <span className="text-sm">{item.text}</span>
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Navigation Sections */}
-          {footerSections.map((section, sectionIndex) => (
-            <motion.div
-              key={section.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: sectionIndex * 0.1 + 0.2 }}
-              className="xl:col-span-1"
+        <nav aria-label="Social media" className="flex items-center gap-2">
+          {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={link.name}
+              title={link.name}
+              className="flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
-              <h3 className="font-semibold text-foreground mb-6 text-lg">
-                {section.title}
-              </h3>
-              <ul className="space-y-3">
-                {section.links.map((link, linkIndex) => (
-                  <motion.li
-                    key={link.name}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: (sectionIndex * 0.1) + (linkIndex * 0.05) + 0.3 }}
-                  >
-                    <Link
-                      href={link.href}
-                      className="text-foreground/70 hover:text-foreground transition-colors duration-200 text-sm group flex items-center gap-2"
-                    >
-                      <div className="w-1 h-1 bg-foreground/30 rounded-full group-hover:bg-foreground transition-colors duration-200"></div>
-                      {link.name}
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+              <SocialIcon name={link.name} />
+            </a>
           ))}
-
-          {/* Newsletter Signup */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="xl:col-span-2"
-          >
-            <h3 className="font-semibold text-foreground mb-6 text-lg">
-              Stay Inspired
-            </h3>
-            <p className="text-foreground/70 text-sm mb-4 leading-relaxed">
-              Subscribe to receive exclusive photography tips, behind-the-scenes content, 
-              and special offers delivered to your inbox.
-            </p>
-            
-            <form className="space-y-3">
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-foreground/5 border border-foreground/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-foreground/20 transition-all duration-200 text-foreground placeholder-white/40 text-sm"
-                />
-                <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-6 py-3 bg-foreground text-gray-900 rounded-xl font-semibold text-sm hover:bg-gray-100 transition-colors duration-200 whitespace-nowrap"
-                >
-                  Subscribe
-                </motion.button>
-              </div>
-              <p className="text-foreground/40 text-xs">
-                No spam, unsubscribe at any time.
-              </p>
-            </form>
-          </motion.div>
-        </div>
+        </nav>
       </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-foreground/10">
-        <div className="max-w-8xl mx-auto px-6 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="text-foreground/50 text-sm"
-            >
-              © {currentYear} The Archive. All rights reserved.
-            </motion.div>
-
-            {/* Legal Links */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex items-center gap-6 text-sm"
-            >
-              <Link href="/privacy" className="text-foreground/50 hover:text-foreground transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="text-foreground/50 hover:text-foreground transition-colors duration-200">
-                Terms of Service
-              </Link>
-              <Link href="/cookies" className="text-foreground/50 hover:text-foreground transition-colors duration-200">
-                Cookie Policy
-              </Link>
-            </motion.div>
-
-            {/* Made With Love */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="text-foreground/40 text-sm flex items-center gap-2"
-            >
-              <span>Captured with</span>
-              <div className="w-4 h-4 bg-red-500 rounded-full relative">
-                <div className="absolute inset-1 bg-foreground rounded-full"></div>
-              </div>
-              <span>in Accra East Legon</span>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Background Elements */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
     </footer>
   );
 }
+
