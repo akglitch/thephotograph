@@ -2,8 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const socialLinks = [
-  { name: 'Instagram', href: 'https://instagram.com/thearchive' },
-  { name: 'Facebook', href: 'https://facebook.com/thearchive' },
+  { name: 'Instagram', href: 'https://www.instagram.com/ak_deez/' },
   { name: 'TikTok', href: 'https://www.tiktok.com/@glitchstudioz' },
 ];
 

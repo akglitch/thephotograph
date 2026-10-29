@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const heroSlides = [
-  { src: '/slider1.jpeg', alt: 'People beside a fishing boat on the beach', label: 'Coastal stories' },
-  { src: '/slider2.jpeg', alt: 'Two people standing in the surf', label: 'By the water' },
-  { src: '/slider3.jpg', alt: 'A vintage car passing through an Accra street', label: 'Street memories' },
+  { src: '/slider1.webp', alt: 'People beside a fishing boat on the beach', label: 'Coastal stories' },
+  { src: '/slider2.webp', alt: 'Two people standing in the surf', label: 'By the water' },
+  { src: '/slider3.webp', alt: 'A vintage car passing through an Accra street', label: 'Street memories' },
 ];
 
 const featuredImages = [
