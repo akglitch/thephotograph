@@ -1,12 +1,5 @@
-import PortfolioGallery from '../components/portfolioGallery';
+import { redirect } from 'next/navigation';
 
 export default function NubukePage() {
-  return (
-    <PortfolioGallery 
-      initialCategory="nubuke" 
-      hideFilters={true} 
-      title="Nubuke"
-      subtitle="Collection 2026"
-    />
-  );
+  redirect('/wedding');
 }

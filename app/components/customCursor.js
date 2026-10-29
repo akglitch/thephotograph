@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { useTheme } from 'next-themes';
 
 export default function CustomCursor() {
   const [cursorState, setCursorState] = useState('default'); // 'default', 'hover', 'view', 'hide'
   const [isMobile, setIsMobile] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const cursorColor = resolvedTheme === 'light' ? '0, 0, 0' : '255, 255, 255';
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -65,20 +68,20 @@ export default function CustomCursor() {
     default: {
       width: 12,
       height: 12,
-      backgroundColor: 'rgba(255, 255, 255, 1)',
-      border: '0px solid rgba(255, 255, 255, 0)',
+      backgroundColor: `rgba(${cursorColor}, 1)`,
+      border: '0px solid transparent',
     },
     hover: {
       width: 80,
       height: 80,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
-      border: '1px solid rgba(255, 255, 255, 0.2)',
+      backgroundColor: `rgba(${cursorColor}, 0.1)`,
+      border: `1px solid rgba(${cursorColor}, 0.35)`,
     },
     view: {
       width: 100,
       height: 100,
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
-      border: '0px solid rgba(255, 255, 255, 0)',
+      backgroundColor: `rgba(${cursorColor}, 0.95)`,
+      border: '0px solid transparent',
     },
     hide: {
       opacity: 0,

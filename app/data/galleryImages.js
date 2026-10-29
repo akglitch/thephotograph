@@ -407,36 +407,6 @@ export const galleryImages = [
     title: "The Open Oasis",
     description: "A structured haven under the open sky, inviting a moment of pause amidst the gravel and green."
   },
-  { id: 52, src: "/20260620_130035.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 53, src: "/20260620_130051.jpeg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 54, src: "/20260620_130251.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 55, src: "/20260620_130257.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 56, src: "/20260620_131544.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 57, src: "/20260620_132446.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 58, src: "/20260620_133513.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 59, src: "/20260620_133533.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 60, src: "/20260620_134028.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 61, src: "/20260620_134031.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 62, src: "/20260620_134134.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 63, src: "/20260620_134445.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 64, src: "/20260620_134929.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 65, src: "/20260620_135108.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 66, src: "/20260620_135111.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 68, src: "/20260620_151515.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 69, src: "/20260620_151603.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 70, src: "/20260620_151818.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 71, src: "/20260620_152723.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 72, src: "/20260620_152929(0).jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 73, src: "/20260620_152939.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 74, src: "/20260620_153021.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 75, src: "/20260620_154114.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 76, src: "/20260620_155606.jpeg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 77, src: "/20260620_160234.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 78, src: "/20260620_160516.jpeg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 79, src: "/20260620_160525.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 80, src: "/20260620_163147.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 81, src: "/20260620_163232.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" },
-  { id: 82, src: "/20260620_165715.jpg", alt: "Nubuke Foundation Exhibition", category: "nubuke", title: "", description: "" }
 ];
 
 export const categories = [
@@ -444,5 +414,5 @@ export const categories = [
   { id: 'portrait', label: 'Portrait' },
   { id: 'street', label: 'Street' },
   { id: 'archive', label: 'Archive' },
-  { id: 'nubuke', label: 'Nubuke Foundation Art Gallery' }
+  { id: 'wedding', label: 'Wedding' },
 ];

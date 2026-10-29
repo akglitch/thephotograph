@@ -37,10 +37,7 @@ export default function PortfolioGallery({
   }, [isLoading, showBio]);
 
   useEffect(() => {
-    // Give the high-end animation exactly enough time to play out
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3200);
+    const timer = setTimeout(() => setIsLoading(false), 3200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -139,8 +136,6 @@ export default function PortfolioGallery({
                 />
               </motion.h1>
             </div>
-
-            {/* Minimal loading progress line */}
             <motion.div
               className="absolute bottom-0 left-0 h-[1px] bg-border"
               initial={{ width: "0%" }}
@@ -151,8 +146,8 @@ export default function PortfolioGallery({
         )}
       </AnimatePresence>
 
-      <section 
-        className={`relative overflow-hidden bg-background text-foreground min-h-screen font-sans transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+      <section
+        className={`relative min-h-screen overflow-hidden bg-background font-sans text-foreground transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
       >
         <div className="mx-auto max-w-8xl px-6 py-32 sm:px-12 lg:px-24">
 
@@ -189,33 +184,29 @@ export default function PortfolioGallery({
                   className="flex flex-wrap gap-8"
                 >
                 {categories.map((category) => {
-                  if (category.id === 'nubuke') {
+                  const className = `relative pb-1 text-xs uppercase tracking-[0.2em] transition-all duration-500 hover:text-foreground ${
+                    activeCategory === category.id ? 'text-foreground' : 'text-muted-foreground'
+                  }`;
+
+                  if (category.id === 'wedding') {
                     return (
-                      <a
-                        key={category.id}
-                        href="/nubuke"
-                        className={`text-xs uppercase tracking-[0.2em] pb-1 transition-all duration-500 hover:text-foreground relative block ${activeCategory === category.id
-                            ? 'text-foreground'
-                            : 'text-muted-foreground'
-                          }`}
-                      >
+                      <a key={category.id} href="/wedding" className={className}>
                         {category.name}
-                        <span className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-500 ${activeCategory === category.id ? 'w-full' : 'w-0'}`}></span>
                       </a>
                     );
                   }
+
                   return (
                     <button
                       key={category.id}
                       type="button"
                       onClick={() => setActiveCategory(category.id)}
-                      className={`text-xs uppercase tracking-[0.2em] pb-1 transition-all duration-500 hover:text-foreground relative ${activeCategory === category.id
-                          ? 'text-foreground'
-                          : 'text-muted-foreground'
-                        }`}
+                      className={className}
                     >
                       {category.name}
-                      <span className={`absolute left-0 bottom-0 h-[1px] bg-foreground transition-all duration-500 ${activeCategory === category.id ? 'w-full' : 'w-0'}`}></span>
+                      <span className={`absolute bottom-0 left-0 h-px bg-foreground transition-all duration-500 ${
+                        activeCategory === category.id ? 'w-full' : 'w-0'
+                      }`} />
                     </button>
                   );
                 })}
