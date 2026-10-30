@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
+import SideNav from './components/SideNav';
+import ThemeToggle from './components/ThemeToggle';
 
 const heroSlides = [
   { src: '/slider1.webp', alt: 'People beside a fishing boat on the beach', label: 'Coastal stories' },
@@ -125,12 +127,10 @@ export default function HomePage() {
               <Link href="/gallery" className="transition-colors hover:text-white/60">Portfolio</Link>
               <Link href="/wedding" className="transition-colors hover:text-white/60">Wedding</Link>
               <Link href="/contact" className="transition-colors hover:text-white/60">Contact</Link>
+              <ThemeToggle variant="light" />
             </nav>
-            <div className="flex items-center gap-4 text-[9px] uppercase tracking-[0.2em] md:hidden">
-              <Link href="/" className="text-white/80 transition-colors hover:text-white">Home</Link>
-              <Link href="/contact" className="border border-white/60 px-3.5 py-2 transition-colors hover:bg-white hover:text-black text-white">
-                Contact
-              </Link>
+            <div className="md:hidden">
+              <SideNav variant="light" />
             </div>
           </div>
         </header>

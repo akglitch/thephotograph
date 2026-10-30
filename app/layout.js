@@ -3,7 +3,6 @@ import './globals.css';
 import BackToTop from './components/backToTop';
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from './components/ThemeProvider';
-import ThemeToggle from './components/ThemeToggle';
 import CustomCursor from './components/customCursor';
 import Footer from './components/Footer';
 
@@ -14,6 +13,14 @@ const signature = Mr_De_Haviland({ weight: '400', subsets: ["latin"], variable: 
 export const metadata = {
   title: 'glitchStudioz',
   description: 'glitchStudioz by Kwaku Ntiri: photography exploring the intersection of street realism and editorial grace.',
+  icons: {
+    icon: [
+      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '32x32' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -25,7 +32,6 @@ export default function RootLayout({ children }) {
           <Footer />
           <CustomCursor />
           <BackToTop />
-          <ThemeToggle />
           <Analytics />
         </ThemeProvider>
       </body>

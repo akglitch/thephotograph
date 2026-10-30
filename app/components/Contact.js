@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import SideNav from './SideNav';
+import ThemeToggle from './ThemeToggle';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -71,12 +73,16 @@ export default function Contact() {
             />
           </Link>
 
-          <nav className="flex items-center gap-6 sm:gap-8 text-[10px] uppercase tracking-[0.24em] text-foreground/80">
+          <nav className="hidden md:flex items-center gap-6 sm:gap-8 text-[10px] uppercase tracking-[0.24em] text-foreground/80">
             <Link href="/" className="transition-colors hover:text-foreground">Home</Link>
             <Link href="/gallery" className="transition-colors hover:text-foreground">Portfolio</Link>
             <Link href="/wedding" className="transition-colors hover:text-foreground">Wedding</Link>
             <span className="border-b border-foreground pb-0.5 text-foreground">Contact</span>
+            <ThemeToggle variant="default" />
           </nav>
+          <div className="md:hidden">
+            <SideNav variant="default" />
+          </div>
         </div>
       </header>
 
