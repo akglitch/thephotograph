@@ -52,12 +52,13 @@ export default function SideNav({
   // Lock body scroll smoothly without layout shift
   useEffect(() => {
     if (isOpen) {
+      const isTouch = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
       const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
       const originalOverflow = document.body.style.overflow;
       const originalPaddingRight = document.body.style.paddingRight;
 
       document.body.style.overflow = 'hidden';
-      if (scrollBarWidth > 0) {
+      if (!isTouch && scrollBarWidth > 0) {
         document.body.style.paddingRight = `${scrollBarWidth}px`;
       }
 

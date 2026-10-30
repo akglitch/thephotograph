@@ -40,13 +40,13 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-background text-foreground transition-colors duration-700">
       <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row sm:px-12 lg:px-24">
-        <Link href="/" aria-label="glitchStudioz home">
+        <Link href="/" aria-label="glitchStudioz home" className="brand-logo-frame footer-brand-logo">
           <Image
             src="/logo.png"
             alt="glitchStudioz"
             width={1819}
             height={2551}
-            className="brand-logo-image footer-brand-logo"
+            className="brand-logo-image"
           />
         </Link>
 
@@ -58,10 +58,9 @@ export default function Footer() {
               key={link.name}
               href={link.href}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               aria-label={link.name}
-              title={link.name}
-              className="flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="p-2 text-muted-foreground transition-colors hover:text-foreground"
             >
               <SocialIcon name={link.name} />
             </a>
