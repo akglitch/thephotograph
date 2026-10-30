@@ -18,7 +18,7 @@ export default function PortfolioGallery({
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [selectedImage, setSelectedImage] = useState(null);
   const [loadedImages, setLoadedImages] = useState(new Set());
-  const [isLoading, setIsLoading] = useState(true);
+
   const [showBio, setShowBio] = useState(false);
 
   // Touch swipe tracking
@@ -29,17 +29,12 @@ export default function PortfolioGallery({
   const displayImages = [...galleryImages].reverse();
   
   useEffect(() => {
-    if (isLoading || showBio) {
+    if (showBio) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isLoading, showBio]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3200);
-    return () => clearTimeout(timer);
-  }, []);
+  }, [showBio]);
 
   const categories = categoryNames.map((cat) => ({
     id: cat.id,
@@ -109,45 +104,8 @@ export default function PortfolioGallery({
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <motion.div
-            key="preloader"
-            initial={{ opacity: 1 }}
-            exit={{ y: "-100%" }}
-            transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background"
-          >
-            <div className="overflow-hidden">
-              <motion.h1
-                initial={{ y: 120 }}
-                animate={{ y: 0 }}
-                transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-                className="brand-logo-frame aspect-[664/323] w-[min(88vw,850px)]"
-                aria-label="glitchStudioz"
-              >
-                <Image
-                  src="/logo.png"
-                  alt="glitchStudioz logo"
-                  width={1819}
-                  height={2551}
-                  loading="eager"
-                  className="brand-logo-image"
-                />
-              </motion.h1>
-            </div>
-            <motion.div
-              className="absolute bottom-0 left-0 h-[1px] bg-border"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 2.5, ease: "easeInOut", delay: 0.2 }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <section
-        className={`relative min-h-screen overflow-hidden bg-background font-sans text-foreground transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+        className="relative min-h-screen overflow-hidden bg-background font-sans text-foreground"
       >
         <div className="mx-auto max-w-8xl px-6 py-32 sm:px-12 lg:px-24">
 

@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -32,13 +34,12 @@ function SocialIcon({ name }) {
       </svg>
     );
   }
-
 }
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background text-foreground">
-      <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row sm:px-12 lg:px-24">
+    <footer className="border-t border-border bg-background text-foreground transition-colors duration-700">
+      <div className="mx-auto flex max-w-8xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row sm:px-12 lg:px-24">
         <Link href="/" aria-label="glitchStudioz home">
           <Image
             src="/logo.png"
@@ -70,4 +71,3 @@ export default function Footer() {
     </footer>
   );
 }
-
