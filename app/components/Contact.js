@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import SideNav from './SideNav';
 import ThemeToggle from './ThemeToggle';
 
@@ -13,10 +13,12 @@ export default function Contact() {
     spouseName: '',
     email: '',
     phone: '',
+    eventType: '',
+    customEventType: '',
     weddingDate: '',
+    eventDate: '',
     location: '',
     guests: '',
-    service: '',
     referral: '',
     message: '',
   });
@@ -27,9 +29,39 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
+  const isWedding =
+    Boolean(formData.eventType?.trim().toLowerCase().includes('wedding')) ||
+    Boolean(formData.customEventType?.trim().toLowerCase().includes('wedding'));
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const eventParam = params.get('event') || params.get('type') || params.get('service');
+      if (eventParam) {
+        const lower = eventParam.toLowerCase();
+        const resolved = lower.includes('wedding')
+          ? 'Wedding'
+          : lower.includes('editorial')
+          ? 'Editorial'
+          : lower.includes('portrait')
+          ? 'Portrait'
+          : eventParam;
+        const timer = setTimeout(() => {
+          setFormData((prev) => ({ ...prev, eventType: resolved }));
+        }, 0);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => {
+      const next = { ...prev, [name]: value };
+      if (name === 'weddingDate') next.eventDate = value;
+      if (name === 'eventDate') next.weddingDate = value;
+      return next;
+    });
   };
 
   const handleVerify = () => {
@@ -69,6 +101,7 @@ export default function Contact() {
               width={1819}
               height={2551}
               priority
+              loading="eager"
               className="brand-logo-image"
             />
           </Link>
@@ -172,10 +205,12 @@ export default function Contact() {
                         spouseName: '',
                         email: '',
                         phone: '',
+                        eventType: '',
+                        customEventType: '',
                         weddingDate: '',
+                        eventDate: '',
                         location: '',
                         guests: '',
-                        service: '',
                         referral: '',
                         message: '',
                       });
@@ -201,16 +236,15 @@ export default function Contact() {
                   </div>
 
                   {/* Name & Spouse */}
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <div className={`grid grid-cols-1 gap-6 ${isWedding ? 'sm:grid-cols-2' : ''} transition-all duration-300`}>
                     <div>
                       <label htmlFor="name" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                        Your Name <span className="text-red-500/80">*</span>
+                        Your Name
                       </label>
                       <input
                         type="text"
                         id="name"
                         name="name"
-                        required
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Jane Doe"
@@ -218,34 +252,42 @@ export default function Contact() {
                       />
                     </div>
 
-                    <div>
-                      <label htmlFor="spouseName" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                        Spouse&apos;s Name <span className="text-red-500/80">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="spouseName"
-                        name="spouseName"
-                        required
-                        value={formData.spouseName}
-                        onChange={handleChange}
-                        placeholder="John Doe"
-                        className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
-                      />
-                    </div>
+                    <AnimatePresence>
+                      {isWedding && (
+                        <motion.div
+                          key="spouse-field"
+                          initial={{ opacity: 0, y: -6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -6 }}
+                          transition={{ duration: 0.25, ease: 'easeOut' }}
+                        >
+                          <label htmlFor="spouseName" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
+                            Spouse&apos;s Name
+                          </label>
+                          <input
+                            type="text"
+                            id="spouseName"
+                            name="spouseName"
+                            value={formData.spouseName}
+                            onChange={handleChange}
+                            placeholder="John Doe"
+                            className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
+                          />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* Email & Phone */}
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
                       <label htmlFor="email" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                        Your Email Address <span className="text-red-500/80">*</span>
+                        Your Email Address
                       </label>
                       <input
                         type="email"
                         id="email"
                         name="email"
-                        required
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="youremail@example.com"
@@ -255,13 +297,12 @@ export default function Contact() {
 
                     <div>
                       <label htmlFor="phone" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                        Phone Number <span className="text-red-500/80">*</span>
+                        Phone Number
                       </label>
                       <input
                         type="tel"
                         id="phone"
                         name="phone"
-                        required
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="+233 ..."
@@ -273,33 +314,104 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Wedding Date & Guests */}
+                  {/* Event Type & Date */}
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="weddingDate" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                        Wedding Date <span className="text-red-500/80">*</span>
+                      <label htmlFor="eventType" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
+                        Connected Event
+                      </label>
+                      <div className="relative mt-1.5">
+                        <select
+                          id="eventType"
+                          name="eventType"
+                          value={formData.eventType}
+                          onChange={handleChange}
+                          className="w-full appearance-none border-b border-border bg-transparent py-2 pr-8 text-sm text-foreground transition-colors focus:border-foreground focus:outline-none cursor-pointer"
+                        >
+                          <option value="" className="bg-background text-foreground">Select an event...</option>
+                          <option value="Wedding" className="bg-background text-foreground">Wedding</option>
+                          <option value="Editorial" className="bg-background text-foreground">Editorial</option>
+                          <option value="Portrait" className="bg-background text-foreground">Portrait</option>
+                          <option value="Engagement / Couple Session" className="bg-background text-foreground">Engagement / Couple Session</option>
+                          <option value="Commission / Commercial" className="bg-background text-foreground">Commission / Commercial</option>
+                          <option value="Other" className="bg-background text-foreground">Other</option>
+                        </select>
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-foreground">
+                          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {formData.eventType === 'Other' && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="mt-2.5"
+                        >
+                          <input
+                            type="text"
+                            name="customEventType"
+                            placeholder="Please specify event type..."
+                            value={formData.customEventType || ''}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              setFormData((prev) => ({
+                                ...prev,
+                                customEventType: val,
+                              }));
+                            }}
+                            className="w-full border-b border-border bg-transparent py-1.5 text-xs text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
+                          />
+                        </motion.div>
+                      )}
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor={isWedding ? 'weddingDate' : 'eventDate'}
+                        className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground transition-colors duration-200"
+                      >
+                        {isWedding ? 'Wedding Date' : 'Event Date'}
                       </label>
                       <input
                         type="text"
-                        id="weddingDate"
-                        name="weddingDate"
-                        required
-                        value={formData.weddingDate}
+                        id={isWedding ? 'weddingDate' : 'eventDate'}
+                        name={isWedding ? 'weddingDate' : 'eventDate'}
+                        value={isWedding ? formData.weddingDate : (formData.eventDate || formData.weddingDate)}
                         onChange={handleChange}
                         placeholder="eg. 31 January 2026"
+                        className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Location & Number of Guests */}
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="location" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
+                        Event Location/s
+                      </label>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        value={formData.location}
+                        onChange={handleChange}
+                        placeholder="City, Venue, or Region"
                         className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="guests" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                        Number of Guests <span className="text-red-500/80">*</span>
+                        Number of Guests
                       </label>
                       <input
                         type="text"
                         id="guests"
                         name="guests"
-                        required
                         value={formData.guests}
                         onChange={handleChange}
                         placeholder="Estimated number of guests"
@@ -308,98 +420,44 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  {/* Event Location */}
-                  <div>
-                    <label htmlFor="location" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                      Event Location/s <span className="text-red-500/80">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="location"
-                      name="location"
-                      required
-                      value={formData.location}
-                      onChange={handleChange}
-                      placeholder="City, Venue, or Region"
-                      className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
-                    />
-                  </div>
-
-                  {/* Service Selection */}
-                  <div>
-                    <label htmlFor="service" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                      What Service Are You Interested In? <span className="text-red-500/80">*</span>
-                    </label>
-                    <div className="relative mt-1.5">
-                      <select
-                        id="service"
-                        name="service"
-                        required
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full appearance-none border-b border-border bg-transparent py-2 pr-8 text-sm text-foreground transition-colors focus:border-foreground focus:outline-none cursor-pointer"
-                      >
-                        <option value="" className="bg-background text-foreground">Select a service...</option>
-                        <option value="Full Wedding Coverage" className="bg-background text-foreground">Full Wedding Coverage</option>
-                        <option value="Intimate Wedding / Elopement" className="bg-background text-foreground">Intimate Wedding / Elopement</option>
-                        <option value="Engagement / Couple Session" className="bg-background text-foreground">Engagement / Couple Session</option>
-                        <option value="Editorial / Portrait" className="bg-background text-foreground">Editorial / Portrait Session</option>
-                        <option value="Other" className="bg-background text-foreground">Other</option>
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-foreground">
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* How Did You Hear About Us? */}
                   <div>
                     <label htmlFor="referral" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                      How Did You Hear About Us? <span className="text-red-500/80">*</span>
+                      How Did You Hear About Us?
                     </label>
-                    <div className="relative mt-1.5">
-                      <select
-                        id="referral"
-                        name="referral"
-                        required
-                        value={formData.referral}
-                        onChange={handleChange}
-                        className="w-full appearance-none border-b border-border bg-transparent py-2 pr-8 text-sm text-foreground transition-colors focus:border-foreground focus:outline-none cursor-pointer"
-                      >
-                        <option value="" className="bg-background text-foreground">Select an option...</option>
-                        <option value="Instagram" className="bg-background text-foreground">Instagram</option>
-                        <option value="TikTok" className="bg-background text-foreground">TikTok</option>
-                        <option value="Word of Mouth / Referral" className="bg-background text-foreground">Word of Mouth / Referral</option>
-                        <option value="Google / Web Search" className="bg-background text-foreground">Google / Web Search</option>
-                        <option value="Other" className="bg-background text-foreground">Other</option>
-                      </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2 text-muted-foreground">
-                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </div>
+                    <input
+                      type="text"
+                      id="referral"
+                      name="referral"
+                      value={formData.referral}
+                      onChange={handleChange}
+                      placeholder="eg. Instagram, Friend, Google, etc."
+                      className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none"
+                    />
                   </div>
 
                   {/* Tell Us More! */}
                   <div>
                     <label htmlFor="message" className="block text-[10px] font-medium uppercase tracking-[0.22em] text-foreground">
-                      Tell Us More! <span className="text-red-500/80">*</span>
+                      Tell Us More!
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      required
                       rows={4}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us a little bit more about you as a couple, your aesthetic, and what your vision is for the day..."
+                      placeholder={
+                        isWedding
+                          ? "Tell us a little bit more about you as a couple, your aesthetic, and what your vision is for the day..."
+                          : "Tell us a little bit more about your project, your aesthetic, and what your vision is for the session..."
+                      }
                       className="mt-1.5 w-full border-b border-border bg-transparent py-2 text-sm text-foreground placeholder:text-muted-foreground/40 transition-colors focus:border-foreground focus:outline-none resize-y"
                     />
                     <p className="mt-1 text-[8.5px] leading-relaxed text-muted-foreground">
-                      Any details or special notes you would love us to know about your relationship or wedding day? Feel free to share them here.
+                      {isWedding
+                        ? "Any details or special notes you would love us to know about your wedding day, aesthetic, or vision? Feel free to share them here."
+                        : "Any details or special notes you would love us to know about your event, aesthetic, or vision? Feel free to share them here."}
                     </p>
                   </div>
 

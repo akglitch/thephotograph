@@ -26,6 +26,7 @@ export default function Navigation({ transparent = false }) {
               alt="glitchStudioz"
               fill
               priority
+              loading="eager"
               sizes="180px"
               className="home-brand-image"
             />
@@ -51,6 +52,7 @@ export default function Navigation({ transparent = false }) {
                 </Link>
               );
             })}
+            <ThemeToggle variant="light" />
           </nav>
 
           {/* Small screens SideNav */}
@@ -72,6 +74,7 @@ export default function Navigation({ transparent = false }) {
             width={1819}
             height={2551}
             priority
+            loading="eager"
             className="brand-logo-image"
           />
         </Link>
@@ -96,6 +99,7 @@ export default function Navigation({ transparent = false }) {
               </Link>
             );
           })}
+          <ThemeToggle variant="default" />
         </nav>
 
         {/* Small screens SideNav */}

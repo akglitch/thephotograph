@@ -71,6 +71,7 @@ export default function HomePage() {
                   width={1819}
                   height={2551}
                   priority
+                  loading="eager"
                   className="brand-logo-image"
                 />
               </motion.h1>
@@ -120,7 +121,7 @@ export default function HomePage() {
         <header className="absolute inset-x-0 top-0 z-20">
           <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-6 md:px-12 lg:px-16">
             <Link href="/" aria-label="glitchStudioz home" className="home-brand-frame">
-              <Image src="/logo.png" alt="glitchStudioz" fill priority sizes="180px" className="home-brand-image" />
+              <Image src="/logo.png" alt="glitchStudioz" fill priority loading="eager" sizes="180px" className="home-brand-image" />
             </Link>
             <nav className="hidden items-center gap-8 text-[10px] uppercase tracking-[0.24em] text-white/90 md:flex">
               <Link href="/" className="border-b border-white pb-0.5 text-white">Home</Link>
